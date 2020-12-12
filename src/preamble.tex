@@ -16,7 +16,7 @@
 \defaultfontfeatures{%                                 %  of declarations
   Scale=MatchLowercase, % needed here ...              %  is important for
 }                                                      %  single quotes not
-\setmonofont{Inconsolata}                              %  to turn out curly
+\setmonofont{DejaVuSansMono}                              %  to turn out curly
                                                        %  ("typographic")
 \defaultfontfeatures{%                                 %  in verbatim blocks
   Scale=MatchLowercase, % ... and here again           %  of Scheme code.
@@ -27,8 +27,9 @@
 \setsansfont{Linux Biolinum O} %-----------------------%  giving errors.
 
 \usepackage{polyglossia}
-\setdefaultlanguage[variant=american]{english}
-\setotherlanguages{greek}
+\setmainlanguage{russian}
+\setotherlanguage{greek}
+\setkeys{russian}{babelshorthands=true}
 
 % To be able to use '\-/' in place of '-' inside \code{}
 % so that long function names containing hyphens
