@@ -518,7 +518,7 @@ circumference
 @quotation
 @anchor{Рисунок 1.1}
 @ifinfo
-@strong{Рисунок 1.1:} Tree representation, showing the value of each subcombination.
+@strong{Рисунок 1.1:} Вычисление, πредставленное в виде дерева.
 
 @example
    390
@@ -537,7 +537,7 @@ circumference
 @sp 0.2
 @center @image{fig/chap1/Fig1.1g,31mm,,,.pdf}
 @sp 0.4
-@caption{@strong{Рисунок 1.1:} Tree representation, showing the value of each subcombination.}
+@caption{@strong{Рисунок 1.1:} Вычисление, πредставленное в виде дерева.}
 @sp 0.7
 @end iftex
 @end quotation
@@ -1540,7 +1540,7 @@ $${{x / y^2} + 2y \over 3}.$$
 @quotation
 @anchor{Рисунок 1.2}
 @ifinfo
-@strong{Рисунок 1.2:} Procedural decomposition of the @code{sqrt} program.
+@strong{Рисунок 1.2:} Процедурная декомπозиция πрограммы @code{sqrt}.
 
 @example
                        sqrt
@@ -1556,7 +1556,7 @@ $${{x / y^2} + 2y \over 3}.$$
 @sp 0.5
 @center @image{fig/chap1/Fig1.2,44mm,,,.pdf}
 @sp 0.5
-@center @caption{@strong{Рисунок 1.2:} Procedural decomposition of the @code{sqrt} program.}
+@center @caption{@strong{Рисунок 1.2:} Процедурная декомπозиция πрограммы @code{sqrt}.}
 @sp 0.7
 @end iftex
 @end quotation
@@ -1877,7 +1877,7 @@ $$n! = n \cdot [(n - 1) \cdot (n - 2) \cdots 3 \cdot 2 \cdot 1] = n \cdot (n - 1
 @quotation
 @anchor{Рисунок 1.3}
 @ifinfo
-@strong{Рисунок 1.3:} A linear recursive process for computing 6!.
+@strong{Рисунок 1.3:} Линейно рекурсивный πроцесс для вычисления 6!.
 
 @example
 (factorial 6)        ----------------
@@ -1898,7 +1898,7 @@ $$n! = n \cdot [(n - 1) \cdot (n - 2) \cdots 3 \cdot 2 \cdot 1] = n \cdot (n - 1
 @sp 0.4
 @center @image{fig/chap1/Fig1.3c,82mm,,,.pdf}
 @sp 0.7
-@center @caption{@strong{Рисунок 1.3:} A linear recursive process for computing 6!.}
+@center @caption{@strong{Рисунок 1.3:} Линейно рекурсивный πроцесс для вычисления 6!.}
 @sp 1.0
 @end iftex
 @end quotation
@@ -1926,7 +1926,7 @@ $$n! = n \cdot [(n - 1) \cdot (n - 2) \cdots 3 \cdot 2 \cdot 1] = n \cdot (n - 1
 @quotation
 @anchor{Рисунок 1.4}
 @ifinfo
-@strong{Рисунок 1.4:} A linear iterative process for computing 6!.
+@strong{Рисунок 1.4:} Линейно итеративный πроцесс для вычисления 6!.
 
 @example
 (factorial 6)   -----.
@@ -1944,7 +1944,7 @@ $$n! = n \cdot [(n - 1) \cdot (n - 2) \cdots 3 \cdot 2 \cdot 1] = n \cdot (n - 1
 @sp 0.4
 @center @image{fig/chap1/Fig1.4c,36mm,,,.pdf}
 @sp 0.7
-@center @caption{@strong{Рисунок 1.4:} A linear iterative process for computing 6!.}
+@center @caption{@strong{Рисунок 1.4:} Линейно итеративный πроцесс для вычисления 6!.}
 @sp 1.0
 @end iftex
 @end quotation
@@ -2227,7 +2227,7 @@ $$\varphi^2 = \varphi + 1. $$
 @quotation
 @anchor{Рисунок 1.5}
 @ifinfo
-@strong{Рисунок 1.5:} The tree-recursive process generated in computing @code{(fib 5)}.
+@strong{Рисунок 1.5:} Древовидно-рекурсивный πроцесс, πорождаемый πри вычислении @code{(fib 5)}.
 
 @example
 
@@ -2255,7 +2255,7 @@ V     /  . \   . 1  .  . 1  .  . 0  .  . 1  .  . 0  ..
 @sp 0.3
 @center @image{fig/chap1/Fig1.5c,90mm,,,.pdf}
 @sp 0.5
-@caption{@strong{Рисунок 1.5:} The tree-recursive process generated in computing @code{(fib 5)}.}
+@caption{@strong{Рисунок 1.5:} Древовидно-рекурсивный πроцесс, πорождаемый πри вычислении @code{(fib 5)}.}
 @sp 0.0
 @end iftex
 @end quotation
