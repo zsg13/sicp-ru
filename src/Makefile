@@ -4,6 +4,8 @@
 FIG := $(patsubst %.svg,%.pdf,$(wildcard fig/*/*.svg))
 DIR := $(shell pwd)
 
+work: clean-sicp all
+
 all: sicp.pdf
 
 sicp.pdf: sicp.tex exercises.tex figures.tex coverpage.pdf ${FIG}
@@ -22,6 +24,9 @@ exercises.tex figures.tex: ex-fig-ref.pl
 
 clean:
 	latexmk -CA
+
+clean-sicp: clean
+	${RM} sicp.tex
 
 clean-all: clean
 	${RM} ${FIG} sicp.tex exercises.tex figures.tex coverpage.pdf
