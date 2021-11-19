@@ -140,6 +140,9 @@ sub glue { # glue the tag on embraced arg
     my $arg = shift;
     my $env = (shift or '');
     my $color = '';
+    if ($tag eq 'code' and $env eq 'scheme') {
+      $color = "\\dark "; # an alias defined in the preamble
+    }
     if ($tag eq 'var' and $env eq 'scheme') {
       $color = "\\dark "; # an alias defined in the preamble
     }
