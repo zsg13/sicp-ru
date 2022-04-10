@@ -6564,28 +6564,28 @@ after-lambda15
 @subsection Лексическая адресация
 @node	5.5.6, 5.5.7, 5.5.5, 5.5
 
-One of the most common optimizations performed by compilers is the optimization
-of variable lookup.  Our compiler, as we have implemented it so far, generates
-code that uses the @code{lookup-variable-value} operation of the evaluator
-machine.  This searches for a variable by comparing it with each variable that
-is currently bound, working frame by frame outward through the run-time
-environment.  This search can be expensive if the frames are deeply nested or
-if there are many variables.  For example, consider the problem of looking up
-the value of @code{x} while evaluating the expression @code{(* x y z)} in an
-application of the procedure that is returned by
+Одна из наиболее часто встречающихся в компиляторах оптимизаций связана
+с поиском переменных. В нынешнем виде наш компилятор использует операцию
+@code{lookup-variable-value} машины-вычислителя. Эта операция ищет
+переменную, сравнивая ее со всеми переменными, связанными в данный
+момент, и проходя кадр за кадром по окружению, имеющемуся во время
+выполнения. Если кадр глубоко вложен или если имеется много переменных,
+этот поиск может оказаться дорогим. Рассмотрим, например, задачу поиска
+значения @code{x} при вычислении выражения @code{(* x y z)} внутри
+процедуры, возвращаемой при вычислении
 
 \enlargethispage{\baselineskip}
 
 @lisp
 (let ((x 3) (y 4))
   (lambda (a b c d e)
-    (let ((y (* a b x)) (z (+ c d x)))
+    (let ((y (* a b x))
+          (z (+ c d x)))
       (* x y z))))
 @end lisp
 
-@noindent
-Since a @code{let} expression is just syntactic sugar for a @code{lambda}
-combination, this expression is equivalent to
+Поскольку выражение @code{let} --- всего лишь синтаксический сахар для
+комбинации @code{lambda}, это выражение равносильно
 
 @lisp
 ((lambda (x y)
@@ -6597,42 +6597,44 @@ combination, this expression is equivalent to
  4)
 @end lisp
 
-@noindent
-Each time @code{lookup-variable-value} searches for @code{x}, it must determine
-that the symbol @code{x} is not @code{eq?} to @code{y} or @code{z} (in the
-first frame), nor to @code{a}, @code{b}, @code{c}, @code{d}, or @code{e} (in
-the second frame).  We will assume, for the moment, that our programs do not
-use @code{define}---that variables are bound only with @code{lambda}.  Because
-our language is lexically scoped, the run-time environment for any expression
-will have a structure that parallels the lexical structure of the program in
-which the expression appears.@footnote{This is not true if we allow internal
-definitions, unless we scan them out.  See @ref{Exercise 5.43}.  } Thus, the
-compiler can know, when it analyzes the above expression, that each time the
-procedure is applied the variable @code{x} in @code{(* x y z)} will be found
-two frames out from the current frame and will be the first variable in that
-frame.
+Каждый раз, когда @code{lookup-variable-value} ищет @code{x}, она должна
+убедиться, что символ @code{x} не равен (через @code{eq?}) ни @code{y},
+ни @code{z} (в первом кадре), ни @code{a}, @code{b}, @code{c}, @code{d},
+ни @code{e} (во втором). Предположим, временно, что в наших программах
+не используется @code{define} --- что переменные связываются только
+через @code{lambda}. Поскольку в нашем языке лексическая сфера действия,
+во время выполнения окружение любого выражения будет иметь структуру,
+параллельную лексической структуре программы, в которой это выражение
+встречается@footnote{Это не так, если мы разрешаем внутренние
+определения и если мы от них не избавляемся.
+См. упражнение @ref{Упражнение 5.43}.}. Таким образом, компилятор при
+анализе вышеуказанного выражения может узнать, что каждый раз, когда
+процедура применяется, переменная @code{x} в @code{(* x y z)} будет найдена на два
+кадра выше текущего, и в этом кадре будет первая.
 
-We can exploit this fact by inventing a new kind of variable-lookup operation,
-@code{lexical-address-lookup}, that takes as arguments an environment and a
-@newterm{lexical address} that consists of two numbers: a @newterm{frame
-number}, which specifies how many frames to pass over, and a
-@newterm{displacement number}, which specifies how many variables to pass over
-in that frame.  @code{lexical-address-lookup} will produce the value of the
-variable stored at that lexical address relative to the current environment.
-If we add the @code{lexical-address-lookup} operation to our machine, we can
-make the compiler generate code that references variables using this operation,
-rather than @code{lookup-variable-value}.  Similarly, our compiled code can use
-a new @code{lexical-address-set!}  operation instead of
+Мы можем это использовать и ввести новый вид операции поиска переменной,
+@code{lexical-address-lookup}, который в качестве аргументов берет
+окружение и (@newterm{lexical address}), состоящий из двух чисел: (@newterm{frame number}),
+который показывает, сколько кадров надо пропустить, и (displacement
+number), которое показывает, сколько переменных нужно пропустить в этом
+кадре. @code{Lexical-address-lookup} будет возвращать значение
+переменной, которая имеет указанный лексический адрес по отношению к
+текущему окружению. Добавив в свою машину
+@code{lexical-address-lookup}, мы можем научить компилятор порождать
+код, который обращается к переменным через эту операцию, а не через
+@code{lookup-variable-value}. Подобным образом, скомпилированный код
+может использовать новую операцию @code{lexical-address-set!} вместо
 @code{set-variable-value!}.
 
-In order to generate such code, the compiler must be able to determine the
-lexical address of a variable it is about to compile a reference to.  The
-lexical address of a variable in a program depends on where one is in the code.
-For example, in the following program, the address of @code{x} in expression
-@math{\langle}@var{e1}@math{\kern0.08em\rangle} is (2, 0)---two frames back and the first variable in the frame.  At
-that point @code{y} is at address (0, 0) and @code{c} is at address (1, 2).  In
-expression @math{\langle}@var{e2}@math{\kern0.09em\rangle}, @code{x} is at (1, 0), @code{y} is at (1, 1), and @code{c}
-is at (0, 2).
+Для того, чтобы порождать такой код, компилятор должен уметь определять
+лексический адрес переменной, ссылку на которую он намерен
+скомпилировать. Лексический адрес переменной зависит от того, где она
+находится в коде. Например, в следующей программе адрес @code{x} в
+выражении @math{\langle}@var{e1}@math{\rangle} есть (2,0) --- на два
+кадра назад и первая переменная в кадре. В этом же месте @code{y} имеет
+адрес (0,0), а @code{c} --- адрес (1,2). В выражении
+@math{\langle}@var{e2}@math{\rangle} @code{x} имеет адрес (1,0),
+@code{y} адрес (1,1), а @code{c} адрес (0,2).
 
 @lisp
 ((lambda (x y)
@@ -6644,56 +6646,60 @@ is at (0, 2).
  4)
 @end lisp
 
-@noindent
-One way for the compiler to produce code that uses lexical addressing is to
-maintain a data structure called a @newterm{compile-time environment}.  This
-keeps track of which variables will be at which positions in which frames in
-the run-time environment when a particular variable-access operation is
-executed.  The compile-time environment is a list of frames, each containing a
-list of variables.  (There will of course be no values bound to the variables,
-since values are not computed at compile time.)  The compile-time environment
-becomes an additional argument to @code{compile} and is passed along to each
-code generator.  The top-level call to @code{compile} uses an empty
-compile-time environment.  When a @code{lambda} body is compiled,
-@code{compile-lambda-body} extends the compile-time environment by a frame
-containing the procedure's parameters, so that the sequence making up the body
-is compiled with that extended environment.  At each point in the compilation,
-@code{compile-variable} and @code{compile-assignment} use the compile-time
-environment in order to generate the appropriate lexical addresses.
+Один из способов породить в компиляторе код, который использует
+лексическую адресацию, состоит в поддержании структуры данных,
+называемой (compile-time environment). Она следит за тем, какие
+переменные в каких позициях и в каких кадрах будут находиться в
+окружении времени выполнения, когда будет выполняться определенная
+операция доступа к переменной. Окружение времени компиляции представляет
+собой список кадров, каждый из которых содержит список переменных.
+(Разумеется, с переменными не будет связано никаких значений, поскольку
+во время компиляции значения не вычисляются.) Окружение времени
+компиляции становится дополнительным аргументом процедуры @code{compile}
+и передается всем генераторам кода. Вызов @code{compile} верхнего уровня
+использует пустое окружение времени компиляции. Когда компилируется тело
+@code{lambda}, @code{compile-lambda-body} расширяет это окружение
+кадром, содержащим параметры процедуры, так что последовательность,
+которая является телом, компилируется в этом расширенном окружении. В
+каждой точке компиляции @code{compile-variable} и
+@code{compile-assignment} используют окружение времени компиляции для
+порождения соответствующих лексических адресов.
 
-@ref{Exercise 5.39} through @ref{Exercise 5.43} describe how to complete this
-sketch of the lexical-addressing strategy in order to incorporate lexical
-lookup into the compiler.  @ref{Exercise 5.44} describes another use for the
-compile-time environment.
+Упражнения с @ref{Упражнение 5.39} по @ref{Упражнение 5.43} описывают,
+как завершить этот набросок лексической адресации и включить в
+компилятор лексический поиск. В упражнении @ref{Упражнение 5.44}
+описывается еще один способ использовать окружение времени компиляции.
 
 @quotation
-@strong{@anchor{Exercise 5.39}Exercise 5.39:} Write a procedure
-@code{lexical-address-lookup} that implements the new lookup operation.  It
-should take two arguments---a lexical address and a run-time environment---and
-return the value of the variable stored at the specified lexical address.
-@code{lexical-address-lookup} should signal an error if the value of the
-variable is the symbol @code{*unassigned*}.@footnote{This is the modification
-to variable lookup required if we implement the scanning method to eliminate
-internal definitions (@ref{Exercise 5.43}).  We will need to eliminate these
-definitions in order for lexical addressing to work.} Also write a procedure
-@code{lexical-address-set!} that implements the operation that changes the
-value of the variable at a specified lexical address.
+@strong{@anchor{Упражнение 5.39}Упражнение 5.39:} Напишите процедуру @code{lexical-address-lookup}, которая
+реализует новую операцию поиска. Она должна брать два аргумента ---
+лексический адрес и окружение времени выполнения, --- и возвращать
+значение переменной, находящейся по указанному лексическому адресу.
+@code{Lexical-address-lookup} должна сообщать об ошибке, если значением
+переменной является символ @code{unassigned*}@footnote{Эта
+модификация в поиске переменной требуется в том случае, если мы
+реализуем просмотр текста и уничтожение внутренних определений
+(упражнение @ref{Упражнение 5.43}). Чтобы лексическая адресация
+работала, их следует уничтожить.}. Кроме того, напишите процедуру
+@code{lexical-address-set!}, реализующую операцию, которая изменяет
+значение переменной по указанному лексическому адресу.
 @end quotation
 
 @quotation
-@strong{@anchor{Exercise 5.40}Exercise 5.40:} Modify the compiler to maintain
-the compile-time environment as described above.  That is, add a
-compile-@/time-@/environment argument to @code{compile} and the various code
-generators, and extend it in @code{compile-lambda-body}.
+@strong{@anchor{Упражнение 5.40}Упражнение 5.40:} Модифицируйте компилятор так, чтобы он поддерживал
+окружение времени компиляции, как описано выше.  а именно, добавьте
+аргумент-окружение к @code{compile} и всем генераторам кода, и
+расширяйте его в @code{compile-lambda-body}.
 @end quotation
 
 @quotation
-@strong{@anchor{Exercise 5.41}Exercise 5.41:} Write a procedure
-@code{find-variable} that takes as arguments a variable and a compile-time
-environment and returns the lexical address of the variable with respect to
-that environment.  For example, in the program fragment that is shown above,
-the compile-time environment during the compilation of expression @math{\langle}@var{e1}@math{\kern0.08em\rangle} is
-@code{((y z) (a b c d e) (x y))}.  @code{find-variable} should produce
+@strong{@anchor{Упражнение 5.41}Упражнение 5.41:} Напишите процедуру @code{find-variable}, которая в
+качестве аргументов принимает переменную и окружение времени
+компиляции, а возвращает лексический адрес переменной по отношению к
+этому окружению. Например, во фрагменте программы, который приведен
+выше, окружение времени компиляции при обработке выражения
+@math{\langle}@var{e1}@math{\rangle} равно
+@code{((y z) (a b c d e) (x y))}. @code{find-variable} должна давать
 
 @lisp
 (find-variable 'c '((y z) (a b c d e) (x y)))
@@ -6706,68 +6712,77 @@ the compile-time environment during the compilation of expression @math{\langle}
 @end quotation
 
 @quotation
-@strong{@anchor{Exercise 5.42}Exercise 5.42:} Using @code{find-variable} from
-@ref{Exercise 5.41}, rewrite @code{compile-@/variable} and
-@code{compile-assignment} to output lexical-address instructions.  In cases
-where @code{find-variable} returns @code{not-found} (that is, where the
-variable is not in the compile-time environment), you should have the code
-generators use the evaluator operations, as before, to search for the binding.
-(The only place a variable that is not found at compile time can be is in the
-global environment, which is part of the run-time environment but is not part
-of the compile-time environment.@footnote{Lexical addresses cannot be used to
-access variables in the global environment, because these names can be defined
-and redefined interactively at any time.  With internal definitions scanned
-out, as in @ref{Exercise 5.43}, the only definitions the compiler sees are
-those at top level, which act on the global environment.  Compilation of a
-definition does not cause the defined name to be entered in the compile-time
-environment.}  Thus, if you wish, you may have the evaluator operations look
-directly in the global environment, which can be obtained with the operation
-@code{(op get-global-environment)}, instead of having them search the whole
-run-time environment found in @code{env}.)  Test the modified compiler on a few
-simple cases, such as the nested @code{lambda} combination at the beginning of
-this section.
+@strong{@anchor{Упражнение 5.42}Упражнение 5.42:} С помощью @code{find-variable} из
+упражнения @ref{Упражнение 5.41} перепишите @code{compile-variable} и
+@code{compile-assignment} так, чтобы они порождали команды лексической
+адресации. В случаях, когда @code{find-variable} возвращает
+@code{not-found} (то есть, когда переменной нет в окружении времени
+компиляции), нужно заставлять генераторы кода использовать, как и
+раньше, операции вычислителя для поиска связывания. (Единственное место,
+где может оказаться переменная, не найденная во время компиляции ---
+это глобальное окружение, которое является частью окружения времени
+выполнения, но не окружения времени компиляции@footnote{Для доступа к
+переменным в глобальном окружении нельзя использовать лексические
+адреса, поскольку эти имена можно определять и переопределять
+интерактивно когда угодно. Если внутренние определения вычищены, как в
+упражнении @ref{Упражнение 5.43}, то компилятор видит только
+определения верхнего уровня, которые действуют на глобальное окружение.
+Компиляция определения не приводит к тому, что определяемое имя
+вводится в окружение времени компиляции.}. Поэтому, если хотите, можете
+заставить операции вычислителя искать сразу в глобальном окружении,
+которое можно получить с помощью операции
+@code{(op get-global-environment)}, а не в полном локальном окружении,
+которое хранится в @code{env}.) Проверьте измененный компилятор на
+нескольких простых примерах, например, на вложенной комбинации
+@code{lambda} из начала этого раздела.
 @end quotation
 
 @quotation
-@strong{@anchor{Exercise 5.43}Exercise 5.43:} We argued in @ref{4.1.6}
-that internal definitions for block structure should not be considered ``real''
-@code{define}s.  Rather, a procedure body should be interpreted as if the
-internal variables being defined were installed as ordinary @code{lambda}
-variables initialized to their correct values using @code{set!}.
-@ref{4.1.6} and @ref{Exercise 4.16} showed how to modify the metacircular
-interpreter to accomplish this by scanning out internal definitions.  Modify
-the compiler to perform the same transformation before it compiles a procedure
-body.
+@strong{@anchor{Упражнение 5.43}Упражнение 5.43:} В разделе @ref{4.1.6} мы
+показали, что определения внутри блочной структуры не следует
+рассматривать как <<настоящие>> @code{define}. Вместо этого тело
+процедуры следует интерпретировать так, как будто внутренние переменные,
+определяемые через @code{define}, были введены как обыкновенные
+переменные @code{lambda}, а их настоящее значение было им присвоено
+через @code{set!}. В разделе @ref{4.1.6} и
+упражнении @ref{Упражнение 4.16} показывалось, как можно изменить
+метациклический интерпретатор и добиться этого просмотром внутренних
+определений. Измените компилятор так, чтобы он проводил такое же
+преобразование, прежде чем компилировать тело процедуры.
 @end quotation
 
 @quotation
-@strong{@anchor{Exercise 5.44}Exercise 5.44:} In this section we have focused
-on the use of the compile-time environment to produce lexical addresses.  But
-there are other uses for compile-time environments.  For instance, in
-@ref{Exercise 5.38} we increased the efficiency of compiled code by open-coding
-primitive procedures.  Our implementation treated the names of open-coded
-procedures as reserved words.  If a program were to rebind such a name, the
-mechanism described in @ref{Exercise 5.38} would still open-code it as a
-primitive, ignoring the new binding.  For example, consider the procedure
+@strong{@anchor{Упражнение 5.44}Упражнение 5.44:} В этом разделе мы в основном говорили о том, как с
+помощью окружения времени компиляции порождать лексические адреса.
+Однако такие окружения можно использовать и другими способами.
+Например, в упражнении @ref{Упражнение 5.38} мы повысили
+эффективность скомпилированного кода путем явного кодирования
+элементарных процедур. Наша реализация обрабатывала имена явно
+кодируемых процедур как зарезервированные слова. Если бы какая-либо
+программа переопределяла такое имя, механизм, описанный в
+упражнении @ref{Упражнение 5.38}, продолжал бы явно кодировать его как
+примитив и игнорировал бы новое связывание. Рассмотрим, например,
+процедуру
 
 @lisp
 (lambda (+ * a b x y)
   (+ (* a x) (* b y)))
 @end lisp
 
-@noindent
-which computes a linear combination of @code{x} and @code{y}.  We might call it
-with arguments @code{+matrix}, @code{*matrix}, and four matrices, but the
-open-coding compiler would still open-code the @code{+} and the @code{*} in
-@code{(+ (* a x) (* b y))} as primitive @code{+} and @code{*}.  Modify the
-open-coding compiler to consult the compile-time environment in order to
-compile the correct code for expressions involving the names of primitive
-procedures.  (The code will work correctly as long as the program does not
-@code{define} or @code{set!} these names.)
+которая вычисляет линейную комбинацию @code{x} и @code{y}. Мы могли бы
+вызвать такую процедуру с аргументами @code{+matrix}, @code{matrix} и
+четырьмя матрицами, но явно кодирующий компилятор по-прежнему вставлял
+бы код для @code{+} и @code{} в @code{(+ (* a x) (* b y))} как для
+примитивов @code{+} и @code{}. Измените компилятор с явным кодированием
+так, чтобы он проверял окружение времени компиляции и на его основе
+порождал правильный код для выражений, в которых встречаются имена
+элементарных процедур. (Код будет работать правильно, пока программа не
+применяет к этим именам @code{define} или @code{set!}.)
 @end quotation
 
 @endpage
-@subsection Interfacing Compiled Code to the Evaluator
+@comment @subsection Interfacing Compiled Code to the Evaluator
+@subsection Связь скомпилированного кода с вычислителем
 @node	5.5.7,  , 5.5.6, 5.5
 
 We have not yet explained how to load compiled code into the evaluator machine
