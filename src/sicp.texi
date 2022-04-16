@@ -520,439 +520,498 @@ more.''
 ---Alan J. Perlis (April 1, 1922 -- February 7, 1990)
 @end quotation
 
-@unnumbered Foreword
+@comment @unnumbered Foreword
+@unnumbered Предисловие
 @node    Foreword, Preface, Dedication, Top
 
 @c @sp -0.6
 
-\lettrine{E}{ducators, generals, dieticians}, psychologists, and parents program.  Ar\-mies,
-students, and some societies are programmed.  An assault on large problems
-employs a succession of programs, most of which spring into existence en route.
-These programs are rife with issues that appear to be particular to the problem
-at hand.  To appreciate programming as an intellectual activity in its own
-right you must turn to computer programming; you must read and write computer
-programs---many of them.  It doesn't matter much what the programs are about or
-what applications they serve.  What does matter is how well they perform and
-how smoothly they fit with other programs in the creation of still greater
-programs.  The programmer must seek both perfection of part and adequacy of
-collection.  In this book the use of ``program'' is focused on the creation,
-execution, and study of programs written in a dialect of Lisp for execution on
-a digital computer.  Using Lisp we restrict or limit not what we may program,
-but only the notation for our program descriptions.
+\lettrine{П}{рограммированием занимаются} учителя, генералы, диетологи, психологи и
+родители. Программированию подвергаются армии, ученики и некоторые виды
+обществ. При решении крупных задач приходится применять последовательно
+множество программ, бóльшая часть которых возникает прямо в процессе
+решения. Эти программы изобилуют деталями, относящимися к той конкретной
+задаче, которую они решают. Если же Вы хотите оценить программирование
+как интеллектуальную деятельность особого рода, то Вам следует
+обратиться к программированию компьютеров; читайте и пишите компьютерные
+программы --- много программ. Не так уж важно, что будет в них написано
+и как они будут применяться. Важно то, насколько хорошо они работают и
+как гладко стыкуются с другими программами при создании еще более
+крупных программ. Программист должен равно стремиться и к совершенству в
+деталях, и к соразмерности сложного целого. В книге, которую Вы держите
+в руках, словом <<программирование>> мы будем обозначать прежде всего
+создание, выполнение и изучение программ, написанных на одном из
+диалектов языка Лисп и предназначенных для выполнения на цифровом
+компьютере. Использование Лиспа не ограничивает нас в том, чтó мы можем
+описать в наших программах, --- лишь в способе их выражения.
 
-Our traffic with the subject matter of this book involves us with three foci of
-phenomena: the human mind, collections of computer programs, and the computer.
-Every computer program is a model, hatched in the mind, of a real or mental
-process.  These processes, arising from human experience and thought, are huge
-in number, intricate in detail, and at any time only partially understood.
-They are modeled to our permanent satisfaction rarely by our computer programs.
-Thus even though our programs are carefully handcrafted discrete collections of
-symbols, mosaics of interlocking functions, they continually evolve: we change
-them as our perception of the model deepens, enlarges, generalizes until the
-model ultimately attains a metastable place within still another model with
-which we struggle.  The source of the exhilaration associated with computer
-programming is the continual unfolding within the mind and on the computer of
-mechanisms expressed as programs and the explosion of perception they generate.
-If art interprets our dreams, the computer executes them in the guise of
-programs!
+Продвигаясь по материалу этой книги, мы будем встречаться с тремя
+группами явлений: человеческий разум, совокупности компьютерных программ
+и компьютер. Всякая компьютерная программа --- это порожденная
+человеческим разумом модель реального либо умозрительного процесса. Эти
+процессы, возникающие из нашего опыта и мысли, многочисленны, сложны в
+деталях, и мы всегда понимаем их лишь частично. Редко бывает так, что
+компьютерные программы отображают их к нашему окончательному
+удовлетворению. Таким образом, хотя наши программы представляют собой
+тщательно сработанные дискретные совокупности символов, мозаики
+переплетенных функций, они непрерывно развиваются: мы изменяем их по
+мере того, как наше восприятие модели приобретает все большую глубину,
+расширяется и обобщается, до тех пор, пока модель не достигнет, наконец,
+метастабильного состояния в рамках следующей модели, над которой нам
+предстоит биться. Радостное возбуждение, сопутствующее компьютерному
+программированию, происходит из постоянного раскрытия в голове и в
+компьютере все новых выраженных в виде программ механизмов и из взрыва
+восприятия, который они порождают. Искусство выражает наши мечты.
+Компьютер исполняет их под видом программ!
 
-For all its power, the computer is a harsh taskmaster.  Its programs must be
-correct, and what we wish to say must be said accurately in every detail.  As
-in every other symbolic activity, we become convinced of program truth through
-argument.  Lisp itself can be assigned a semantics (another model, by the way),
-and if a program's function can be specified, say, in the predicate calculus,
-the proof methods of logic can be used to make an acceptable correctness
-argument.  Unfortunately, as programs get large and complicated, as they almost
-always do, the adequacy, consistency, and correctness of the specifications
-themselves become open to doubt, so that complete formal arguments of
-correctness seldom accompany large programs.  Since large programs grow from
-small ones, it is crucial that we develop an arsenal of standard program
-structures of whose correctness we have become sure---we call them idioms---and
-learn to combine them into larger structures using organizational techniques of
-proven value.  These techniques are treated at length in this book, and
-understanding them is essential to participation in the Promethean enterprise
-called programming.  More than anything else, the uncovering and mastery of
-powerful organizational techniques accelerates our ability to create large,
-significant programs.  Conversely, since writing large programs is very taxing,
-we are stimulated to invent new methods of reducing the mass of function and
-detail to be fitted into large programs.
+При всей своей мощности, компьютер требователен и придирчив. Ему нужны
+верные программы, и то, что мы хотим ему сказать, должно быть выражено
+точно в каждой мелочи. Как и при всякой другой работе с символами, мы
+убеждаемся в правильности программ через доказательство. Самому Лиспу
+можно сопоставить семантику (между прочим, тоже модель), и если функцию
+программы можно выразить, скажем, в терминах исчисления предикатов, то
+логические методы позволят нам вывести формальное доказательство ее
+корректности. К сожалению, когда программы становятся большими и
+сложными, что с ними всегда и происходит, адекватность,
+непротиворечивость и корректность самих спецификаций становится
+предметом сомнений, так что большие программы редко сопровождаются
+полными формальными доказательствами корректности. Поскольку большие
+программы вырастают из малых, нам необходимо обзавестись арсеналом
+программных структур, в правильности которых мы можем быть уверены ---
+их можно назвать идиомами --- и научиться объединять их в структуры
+большего размера с помощью организационных методов, ценность которых
+также доказана. Эти методы подробно обсуждаются в книге, и их понимание
+существенно для участия в прометеевском предприятии под названием
+<<программирование>>. Для умения создавать большие, значительные
+программы нет лучшего помощника, чем свободное владение мощными
+организационными методами. И наоборот: затраты, связанные с написанием
+больших программ, побуждают нас изобретать новые методы уменьшения веса
+функций и деталей, входящих в эти программы.
 
-Unlike programs, computers must obey the laws of physics.  If they wish to
-perform rapidly---a few nanoseconds per state change---they must transmit
-electrons only small distances (at most @math{1 {1\over2}} feet). The heat generated by
-the huge number of devices so concentrated in space has to be removed.  An
-exquisite engineering art has been developed balancing between multiplicity of
-function and density of devices.  In any event, hardware always operates at a
-level more primitive than that at which we care to program.  The processes that
-transform our Lisp programs to ``machine'' programs are themselves abstract
-models which we program.  Their study and creation give a great deal of insight
-into the organizational programs associated with programming arbitrary models.
-Of course the computer itself can be so modeled.  Think of it: the behavior of
-the smallest physical switching element is modeled by quantum mechanics
-described by differential equations whose detailed behavior is captured by
-numerical approximations represented in computer programs executing on
-computers composed of @dots{}!
+В отличие от программ, компьютеры должны повиноваться законам физики.
+Если мы хотим, чтобы они работали быстро --- по нескольку наносекунд на
+смену состояния, --- электроны в их цепях не должны проходить большие
+расстояния (более полуметра). При этом тесно сконцентрированные в
+пространстве приборы излучают тепло, которое нужно куда-то отводить: так
+развилось изысканное инженерное искусство, призванное находить
+равновесие между обилием функций и плотностью расположения устройств.
+Так или иначе, аппаратура всегда работает ниже того уровня, на котором
+мы бы хотели программировать. Процессы, посредством которых наши
+программы на Лиспе переводятся в <<машинные>> программы, сами являются
+абстрактными моделями, которые мы воплощаем в программах. Их изучение и
+реализация многое дают для понимания организационных методов,
+направленных на программирование произвольных моделей. Разумеется, так
+можно смоделировать и сам компьютер. Подумайте об этом: поведение
+мельчайшего переключателя моделируется квантовой механикой, которая
+описывается дифференциальными уравнениями, точное поведение которых
+фиксируется в численных приближениях, представленных в виде компьютерных
+программ, которые выполняются на компьютере, составленном из@ ... --- и
+так без конца!
 
-It is not merely a matter of tactical convenience to separately identify the
-three foci.  Even though, as they say, it's all in the head, this logical
-separation induces an acceleration of symbolic traffic between these foci whose
-richness, vitality, and potential is exceeded in human experience only by the
-evolution of life itself.  At best, relationships between the foci are
-metastable.  The computers are never large enough or fast enough.  Each
-breakthrough in hardware technology leads to more massive programming
-enterprises, new organizational principles, and an enrichment of abstract
-models.  Every reader should ask himself periodically ``Toward what end, toward
-what end?''---but do not ask it too often lest you pass up the fun of
-programming for the constipation of bittersweet philosophy.
+Раздельное выделение трех групп явлений --- не просто вопрос
+тактического удобства. Хотя эти группы и остаются, как говорится, в
+голове, но, проводя это разделение, мы позволяем потоку символов между
+тремя группами двигаться быстрее. В человеческом опыте с этим потоком по
+богатству, живости и обилию возможностей сравнится разве что сама
+эволюция жизни. Отношения между разумом человека, программами и
+компьютером в лучшем случае метастабильны. Компьютерам никогда не
+хватает мощности и быстродействия. Каждый новый прорыв в технологии
+производства аппаратуры ведет к появлению более масштабных программных
+проектов, новых организационных принципов и к обогащению абстрактных
+моделей. Пусть каждый читатель время от времени спрашивает себя: <<А
+зачем, к чему все это?>> --- только не слишком часто, чтобы
+удовольствие от программирования не сменилось горечью философского
+тупика.
 
-Among the programs we write, some (but never enough) perform a precise
-mathematical function such as sorting or finding the maximum of a sequence of
-numbers, determining primality, or finding the square root.  We call such
-programs algorithms, and a great deal is known of their optimal behavior,
-particularly with respect to the two important parameters of execution time and
-data storage requirements.  A programmer should acquire good algorithms and
-idioms.  Even though some programs resist precise specifications, it is the
-responsibility of the programmer to estimate, and always to attempt to improve,
-their performance.
+Из тех программ, которые мы пишем, некоторые (но всегда меньше, чем
+хотелось бы) решают точные математические задачи, такие, как сортировка
+последовательности чисел или нахождение их максимума, проверка числа на
+простоту или вычисление квадратного корня. Такие программы называются
+алгоритмами, и об их оптимальном поведении известно довольно много,
+особенно в том, что касается двух важных параметров: времени выполнения
+и потребления памяти. Программист должен владеть хорошими алгоритмами и
+идиомами. Несмотря на то, что некоторые программы сопротивляются точной
+спецификации, в обязанности программиста входит оценивать их
+производительность и все время пытаться ее улучшить.
 
-Lisp is a survivor, having been in use for about a quarter of a century.  Among
-the active programming languages only Fortran has had a longer life.  Both
-languages have supported the programming needs of important areas of
-application, Fortran for scientific and engineering computation and Lisp for
-artificial intelligence.  These two areas continue to be important, and their
-programmers are so devoted to these two languages that Lisp and Fortran may
-well continue in active use for at least another quarter-century.
+Лисп --- ветеран, он используется уже около четверти века. Среди живых
+языков программирования старше него только Фортран. Эти два языка
+обслуживали нужды важных прикладных областей: Фортран ---
+естественно-научных и технических вычислений, а Лисп --- искусственного
+интеллекта. Обе эти области по-прежнему важны, а программисты,
+работающие в них, настолько привязаны к этим двум языкам, что Лисп и
+Фортран вполне могут остаться в деле еще по крайней мере на четверть
+столетия.
 
-Lisp changes.  The Scheme dialect used in this text has evolved from the
-original Lisp and differs from the latter in several important ways, including
-static scoping for variable binding and permitting functions to yield functions
-as values.  In its semantic structure Scheme is as closely akin to Algol 60 as
-to early Lisps.  Algol 60, never to be an active language again, lives on in
-the genes of Scheme and Pascal.  It would be difficult to find two languages
-that are the communicating coin of two more different cultures than those
-gathered around these two languages.  Pascal is for building
-pyramids---imposing, breathtaking, static structures built by armies pushing
-heavy blocks into place.  Lisp is for building organisms---imposing,
-breathtaking, dynamic structures built by squads fitting fluctuating myriads of
-simpler organisms into place.  The organizing principles used are the same in
-both cases, except for one extraordinarily important difference: The
-discretionary exportable functionality entrusted to the individual Lisp
-programmer is more than an order of magnitude greater than that to be found
-within Pascal enterprises.  Lisp programs inflate libraries with functions
-whose utility transcends the application that produced them.  The list, Lisp's
-native data structure, is largely responsible for such growth of utility.  The
-simple structure and natural applicability of lists are reflected in functions
-that are amazingly nonidiosyncratic.  In Pascal the plethora of declarable data
-structures induces a specialization within functions that inhibits and
-penalizes casual cooperation.  It is better to have 100 functions operate on
-one data structure than to have 10 functions operate on 10 data structures.  As
-a result the pyramid must stand unchanged for a millennium; the organism must
-evolve or perish.
+Лисп изменяется. Scheme, его диалект, используемый в этой книге,
+развился из первоначального Лиспа и отличается от него в некоторых
+важных отношениях: в частности, используются статические области
+связывания переменных, а функции могут возвращать в качестве значений
+другие функции. По семантической структуре Scheme так же близка к Алголу
+60, как и к ранним вариантам Лиспа. Алгол 60, который уже никогда не
+будет живым языком, продолжает жить в генах Scheme и Паскаля. Пожалуй,
+трудно найти две более разные культуры программирования, чем те, что
+образовались вокруг этих двух языков и используют их в качестве единой
+валюты. Паскаль служит для построения пирамид --- впечатляющих,
+захватывающих статических структур, создаваемых армиями, которые
+укладывают на места тяжелые плиты. При помощи Лиспа порождаются
+организмы --- впечатляющие, захватывающие динамические структуры,
+создаваемые командами, которые собирают их из мерцающих мириад более
+простых организмов. Организующие принципы в обоих случаях остаются одни
+и те же, за одним существенным исключением: программист, пишущий на
+Лиспе, располагает на порядок большей творческой свободой в том, что
+касается функций, которые он создает для использования другими.
+Программы на Лиспе населяют библиотеки функциями, которые оказываются
+настолько полезными, что они переживают породившие их приложения. Таким
+ростом полезности мы во многом обязаны списку --- исконной лисповской
+структуре данных. Простота структуры списков и естественность их
+использования отражаются в удивительной общности функций. В Паскале
+обилие объявляемых структур данных ведет к специализации функций,
+которая сдерживает и наказывает случайное взаимодействие между ними.
+Лучше иметь 100 функций, которые работают с одной структурой данных, чем
+10 функций, работающих с 10 структурами. В результате пирамиде
+приходится неподвижно стоять тысячелетиями; организм же будет
+развиваться или погибнет.
 
-To illustrate this difference, compare the treatment of material and exercises
-within this book with that in any first-course text using Pascal.  Do not labor
-under the illusion that this is a text digestible at @acronym{MIT} only,
-peculiar to the breed found there.  It is precisely what a serious book on
-programming Lisp must be, no matter who the student is or where it is used.
+Чтобы увидеть эту разницу, сравните подачу материала и упражнения в этой
+книге с тем, что Вы найдете в любом вводном тексте, авторы которого
+используют Паскаль. Не поддавайтесь ошибочному впечатлению, будто этот
+текст может усвоить лишь студент MIT --- представитель специфической
+породы, которая только там и встречается. Нет; именно такова должна быть
+всякая серьезная книга, посвященная программированию на Лиспе, вне
+зависимости от того, где и кто по ней учится.
 
-Note that this is a text about programming, unlike most Lisp books, which are
-used as a preparation for work in artificial intelligence.  After all, the
-critical programming concerns of software engineering and artificial
-intelligence tend to coalesce as the systems under investigation become larger.
-This explains why there is such growing interest in Lisp outside of artificial
-intelligence.
+Учтите, что это текст о программировании, в отличие от большинства книг
+по Лиспу, которые используются для подготовки работников в области
+искусственного интеллекта. В конце концов, основные программистские
+заботы вычислительной инженерии и искусственного интеллекта стремятся к
+взаимопроникновению по мере того, как соответствующие системы
+увеличиваются в объеме. Это объясняет рост интереса к Лиспу за пределами
+искусственного интеллекта.
 
-As one would expect from its goals, artificial intelligence research generates
-many significant programming problems.  In other programming cultures this
-spate of problems spawns new languages.  Indeed, in any very large programming
-task a useful organizing principle is to control and isolate traffic within the
-task modules via the invention of language.  These languages tend to become
-less primitive as one approaches the boundaries of the system where we humans
-interact most often.  As a result, such systems contain complex
-language-processing functions replicated many times.  Lisp has such a simple
-syntax and semantics that parsing can be treated as an elementary task.  Thus
-parsing technology plays almost no role in Lisp programs, and the construction
-of language processors is rarely an impediment to the rate of growth and change
-of large Lisp systems.  Finally, it is this very simplicity of syntax and
-semantics that is responsible for the burden and freedom borne by all Lisp
-programmers.  No Lisp program of any size beyond a few lines can be written
-without being saturated with discretionary functions.  Invent and fit; have
-fits and reinvent!  We toast the Lisp programmer who pens his thoughts within
-nests of parentheses.
+Как и можно было ожидать, глядя на цели, которые ставят перед собой
+исследователи в области искусственного интеллекта, область эта порождает
+множество значительных программистских задач. В других программистских
+культурах такой наплыв задач рождает новые языки. В самом деле, в любой
+большой программной задаче один из важных принципов организации состоит
+в том, чтобы ограничить и изолировать потоки информации в отдельных
+модулях задачи, изобретая для этого язык. По мере приближения к границам
+системы, где мы --- люди --- взаимодействуем чаще всего, эти языки
+обычно становятся все менее примитивными. В результате такие системы
+содержат сложные функции по обработке языка, повторенные по многу раз. У
+Лиспа же синтаксис и семантика настолько просты, что синтаксический
+разбор можно считать элементарной задачей. Таким образом, методы
+синтаксического разбора не играют почти никакой роли в программах на
+Лиспе, и построение языковых процессоров редко служит препятствием для
+роста и изменения больших Лисп-систем. Наконец, именно эта простота
+синтаксиса и семантики возлагает бремя свободы на всех программистов на
+Лиспе. Никакую программу на Лиспе больше, чем в несколько строк длиной,
+невозможно написать, не населив ее самостоятельными функциями. Находите
+новое и приспосабливайте; складывайте и стройте новыми способами! Я
+поднимаю тост за программиста на Лиспе, укладывающего свои мысли в
+гнезда скобок.
 
 @sp 0.5
 @noindent
-Alan J. Perlis@*
-New Haven, Connecticut
+Алан Дж. Перлис@*
+Нью-Хейвен, Коннектикут
 
-@unnumbered Preface to the Second Edition
+@comment @unnumbered Preface to the Second Edition
+@unnumbered Предисловие ко второму изданию
 @node    Preface, Preface 1e, Foreword, Top
 
 @quotation
-Is it possible that software is not like anything else, that it is meant to be
-discarded: that the whole point is to always see it as a soap bubble?
+Возможно ли, что программы не похожи ни на что другое, что они
+предназначены на выброс; что вся штука состоит в том, чтобы всегда
+видеть в них мыльный пузырь?
 
----Alan J. Perlis
+---Алан Дж. Перлис
 @end quotation
 
 @c @sp 0.7
 
 @noindent
-\lettrine{T}{he material in this book} has been the basis of @acronym{MIT}'s entry-level
-computer science subject since 1980.  We had been teaching this material for
-four years when the first edition was published, and twelve more years have
-elapsed until the appearance of this second edition.  We are pleased that our
-work has been widely adopted and incorporated into other texts.  We have seen
-our students take the ideas and programs in this book and build them in as the
-core of new computer systems and languages.  In literal realization of an
-ancient Talmudic pun, our students have become our builders.  We are lucky to
-have such capable students and such accomplished builders.
+\lettrine{М}{атериал этой книги} был основой вводного курса по информатике в MIT
+начиная с 1980 года. К тому времени, как было выпущено первое издание,
+мы преподавали этот материал в течение четырех лет, и прошло еще
+двенадцать лет до появления второго издания. Нам приятно, что наша
+работа была широко признана и включена в другие тексты. Мы видели, как
+наши ученики черпали идеи и программы из этой книги и на их основе
+строили новые компьютерные системы и языки. Буквально по старому
+талмудическому каламбуру, наши ученики стали нашими строителями. Мы
+рады, что у нас такие одаренные ученики и такие превосходные строители.
 
-In preparing this edition, we have incorporated hundreds of clarifications
-suggested by our own teaching experience and the comments of colleagues at
-@acronym{MIT} and elsewhere.  We have redesigned most of the major programming
-systems in the book, including the generic-arithmetic system, the interpreters,
-the register-machine simulator, and the compiler; and we have rewritten all the
-program examples to ensure that any Scheme implementation conforming to the
-@acronym{IEEE} Scheme standard (@ref{IEEE 1990}) will be able to run the
-code.
+Готовя это издание, мы включили в него сотни поправок, которые нам
+подсказали как наш собственный преподавательский опыт, так и советы
+коллег из MIT и других мест. Мы заново спроектировали большинство
+основных программных систем в этой книге, включая систему обобщенной
+арифметики, интерпретаторы, имитатор регистровых машин и компилятор;
+кроме того, мы переписали все примеры программ так, чтобы любая
+реализация Scheme, соответствующая стандарту Scheme IEEE (IEEE 1990),
+была способна выполнять этот код.
 
-This edition emphasizes several new themes.  The most important of these is the
-central role played by different approaches to dealing with time in
-computational models: objects with state, concurrent programming, functional
-programming, lazy evaluation, and nondeterministic programming.  We have
-included new sections on concurrency and nondeterminism, and we have tried to
-integrate this theme throughout the book.
+В этом издании подчеркиваются несколько новых тем. Самая важная из них
+состоит в том, что центральную роль в вычислительных моделях играют
+различные подходы ко времени: объекты, обладающие состоянием,
+параллельное программирование, функциональное программирование, ленивые
+вычисления и недетерминистское программирование. Мы включили в текст
+новые разделы по параллельным вычислениям и недетерминизму и постарались
+интегрировать эту тему в материал книги на всем ее протяжении.
 
-The first edition of the book closely followed the syllabus of our
-@acronym{MIT} one-semester subject.  With all the new material in the second
-edition, it will not be possible to cover everything in a single semester, so
-the instructor will have to pick and choose.  In our own teaching, we sometimes
-skip the section on logic programming (@ref{4.4}), we have students use
-the register-machine simulator but we do not cover its implementation (@ref{5.2}),
-and we give only a cursory overview of the compiler (@ref{5.5}).
-Even so, this is still an intense course.  Some instructors may
-wish to cover only the first three or four chapters, leaving the other material
-for subsequent courses.
+Первое издание книги почти точно следовало программе нашего
+односеместрового курса в MIT. Рассмотреть весь материал, включая то, что
+добавлено во втором издании, в течение семестра будет невозможно, так
+что преподавателю придется выбирать. В нашей собственной практике мы
+иногда пропускаем раздел про логическое программирование
+(раздел@ @ref{4.4}); наши студенты
+используют имитатор регистровых машин, но мы не описываем его реализацию
+(раздел@ @ref{5.2}); наконец, мы даем лишь беглый обзор компилятора
+(раздел@ @ref{5.5}). Даже в таком виде курс
+остается интенсивным. Некоторые преподаватели предпочтут ограничиться
+первыми тремя или четырьмя главами, оставляя прочий материал для
+последующих курсов.
 
-The World-Wide-Web site @url{http://mitpress.mit.edu/sicp} provides
-support for users of this book.  This includes programs from the book, sample
-programming assignments, supplementary materials, and downloadable
-implementations of the Scheme dialect of Lisp.
+Сайт World Wide Web @url{http://mitpress.mit.edu/sicp} предоставляет
+поддержку пользователям этой книги. Там есть программы из книги, простые
+задания по программированию, сопроводительные материалы и реализации
+диалекта Лиспа Scheme.
 
-@unnumbered Preface to the First Edition
+@comment @unnumbered Preface to the First Edition
+@unnumbered Предисловие к первому изданию
 @node    Preface 1e, Acknowledgments, Preface, Top
 
 @c @sp -0.6
 @quotation
-A computer is like a violin.  You can imagine a novice trying first a
-phonograph and then a violin.  The latter, he says, sounds terrible.  That is
-the argument we have heard from our humanists and most of our computer
-scientists.  Computer programs are good, they say, for particular purposes, but
-they aren't flexible.  Neither is a violin, or a typewriter, until you learn
-how to use it.
+Компьютер подобен скрипке. Представьте себе новичка, который сначала
+испытывает проигрыватель, затем скрипку. Скрипка, говорит он, звучит
+ужасно. Именно этот аргумент мы слышали от наших гуманитариев и
+специалистов по информатике. Компьютеры, говорят они, хороши для
+определенных целей, но они недостаточно гибки. Так же и со скрипкой, и с
+пишущей машинкой, пока Вы не научились их использовать.
 
----Marvin Minsky, ``Why Programming Is a Good Medium for Expressing
-Poorly-Understood and Sloppily-Formulated Ideas''
+---Марвин Минский. <<Почему программирование --- хороший способ выражения
+малопонятных и туманно сформулированных идей>>
 @end quotation
 
 @c @sp 0.8
 
 @noindent
-\lettrine[lhang=0.17]{``T}{he Structure and Interpretation of Computer Programs''} is the entry-level
-subject in computer science at the Massachusetts Institute of Technology.  It
-is required of all students at @acronym{MIT} who major in electrical
-engineering or in computer science, as one-fourth of the ``common core
-curriculum,'' which also includes two subjects on circuits and linear systems
-and a subject on the design of digital systems.  We have been involved in the
-development of this subject since 1978, and we have taught this material in its
-present form since the fall of 1980 to between 600 and 700 students each year.
-Most of these students have had little or no prior formal training in
-computation, although many have played with computers a bit and a few have had
-extensive programming or hardware-design experience.
+\lettrine[lhang=0.17]{<<С}{труктура и интерпретация компьютерных программ>>} --- это вводный
+курс по информатике в Массачусетском Технологическом институте (MIT). Он
+обязателен для всех студентов MIT на специальностях <<электротехника>> и
+<<информатика>>, как одна из четырех частей <<общей базовой программы
+обучения>>, которая включает еще два курса по электрическим схемам и
+линейным системам, а также курс по проектированию цифровых систем. Мы
+принимали участие в развитии этого курса начиная с 1978 года и
+преподавали этот материал в его нынешней форме начиная с осени 1980 года
+шестистам--семистам студентам в год. Большая часть этих студентов не
+имела почти или совсем никакого формального образования в области
+вычислительной техники, хотя у многих была возможность общения с
+компьютерами, а некоторые обладали значительным опытом в
+программировании либо проектировании аппаратуры.
 
-Our design of this introductory computer-science subject reflects two major
-concerns.  First, we want to establish the idea that a computer language is not
-just a way of getting a computer to perform operations but rather that it is a
-novel formal medium for expressing ideas about methodology.  Thus, programs
-must be written for people to read, and only incidentally for machines to
-execute.  Second, we believe that the essential material to be addressed by a
-subject at this level is not the syntax of particular programming-language
-constructs, nor clever algorithms for computing particular functions
-efficiently, nor even the mathematical analysis of algorithms and the
-foundations of computing, but rather the techniques used to control the
-intellectual complexity of large software systems.
+Построение этого вводного курса по информатике отражает две основные
+задачи. Во-первых, мы хотим привить слушателям идею, что компьютерный
+язык --- это не просто способ заставить компьютер производить
+вычисления, а новое формальное средство выражения методологических идей.
+Таким образом, программы должны писаться для того, чтобы их читали люди,
+и лишь во вторую очередь для выполнения машиной. Во-вторых, мы считаем,
+что основной материал, на который должен быть направлен курс этого
+уровня, --- не синтаксис определенного языка программирования, не умные
+алгоритмы для эффективного вычисления определенных функций, даже не
+математический анализ алгоритмов и оснований программирования, но методы
+управления интеллектуальной сложностью больших программных систем.
 
-Our goal is that students who complete this subject should have a good feel for
-the elements of style and the aesthetics of programming.  They should have
-command of the major techniques for controlling complexity in a large
-system. They should be capable of reading a 50-page-long program, if it is
-written in an exemplary style. They should know what not to read, and what they
-need not understand at any moment.  They should feel secure about modifying a
-program, retaining the spirit and style of the original author.
+Наша цель --- развить в студентах, проходящих этот курс, хороший вкус к
+элементам стиля и эстетике программирования. Они должны овладеть
+основными методами управления сложностью в большой системе, уметь
+прочитать 50-ти страничную программу, если она написана в хорошем стиле.
+Они должны в каждый данный момент понимать, чего сейчас не следует
+читать и что сейчас не нужно понимать. Они не должны испытывать страха
+перед модификацией программы, сохраняя при этом дух и стиль исходного
+автора.
 
-These skills are by no means unique to computer programming.  The techniques we
-teach and draw upon are common to all of engineering design.  We control
-complexity by building abstractions that hide details when appropriate.  We
-control complexity by establishing conventional interfaces that enable us to
-construct systems by combining standard, well-understood pieces in a ``mix and
-match'' way.  We control complexity by establishing new languages for
-describing a design, each of which emphasizes particular aspects of the design
-and deemphasizes others.
+Все эти умения ни в коем случае не исчерпываются компьютерным
+программированием. Методы, которым мы учим и из которых мы черпаем, одни
+и те же в любом техническом проектировании. Мы управляем сложностью с
+помощью построения абстракций, скрывающих, когда это нужно, детали. Мы
+управляем сложностью путем установления стандартных интерфейсов, которые
+позволяют нам строить системы из единообразных, хорошо понимаемых кусков
+способом <<смеси и стыковки>>. Мы управляем сложностью с помощью
+построения новых языков для описания проекта, каждый из которых
+концентрирует внимание на определенных деталях проекта и уводит его от
+других.
 
-Underlying our approach to this subject is our conviction that ``computer
-science'' is not a science and that its significance has little to do with
-computers.  The computer revolution is a revolution in the way we think and in
-the way we express what we think.  The essence of this change is the emergence
-of what might best be called @newterm{procedural epistemology}---the study of
-the structure of knowledge from an imperative point of view, as opposed to the
-more declarative point of view taken by classical mathematical subjects.
-Mathematics provides a framework for dealing precisely with notions of ``what
-is.''  Computation provides a framework for dealing precisely with notions of
-``how to.''
+В основе нашего подхода к предмету лежит убеждение, что <<компьютерная
+наука>> не является наукой и что ее значение мало связано с
+компьютерами. Компьютерная революция --- это революция в том, как мы
+мыслим и как мы выражаем наши мысли. Сущность этих изменений состоит в
+появлении дисциплины, которую можно назвать @emph{компьютерной
+эпистемологией}, --- исследования структуры знания с императивной точки
+зрения, в противоположность более декларативной точке зрения
+классических математических дисциплин. Математика дает нам структуру, в
+которой мы можем точно описывать понятия типа <<что такое>>.
+Вычислительная наука дает нам структуру, в которой мы можем точно
+описывать понятия типа <<как>>.
 
-In teaching our material we use a dialect of the programming language Lisp.  We
-never formally teach the language, because we don't have to.  We just use it,
-and students pick it up in a few days.  This is one great advantage of
-Lisp-like languages: They have very few ways of forming compound expressions,
-and almost no syntactic structure.  All of the formal properties can be covered
-in an hour, like the rules of chess.  After a short time we forget about
-syntactic details of the language (because there are none) and get on with the
-real issues---figuring out what we want to compute, how we will decompose
-problems into manageable parts, and how we will work on the parts.  Another
-advantage of Lisp is that it supports (but does not enforce) more of the
-large-scale strategies for modular decomposition of programs than any other
-language we know.  We can make procedural and data abstractions, we can use
-higher-order functions to capture common patterns of usage, we can model local
-state using assignment and data mutation, we can link parts of a program with
-streams and delayed evaluation, and we can easily implement embedded languages.
-All of this is embedded in an interactive environment with excellent support
-for incremental program design, construction, testing, and debugging.  We thank
-all the generations of Lisp wizards, starting with John McCarthy, who have
-fashioned a fine tool of unprecedented power and elegance.
+В преподавании мы используем диалект языка программирования Лисп. Мы не
+учим формальной стороне языка, поскольку в этом не возникает нужды. Мы
+просто его используем, и студенты схватывают его за несколько дней. В
+этом состоит одно из больших преимуществ лиспоподобных языков: в них
+очень мало способов строить составные выражения и нет почти никакой
+синтаксической структуры. Все формальные детали могут быть описаны за
+час, как правила шахмат. Спустя некоторое время мы забываем о формальных
+свойствах языка (поскольку их нет) и продолжаем говорить о настоящих
+вопросах; определяем, что именно мы хотим вычислить, как мы будем
+разбивать задачу на куски разумного размера и как потом будем работать с
+этими кусками. Еще одно преимущество Лиспа состоит в том, что он
+поддерживает (но не навязывает) больше крупномасштабных стратегий
+разбиения программ на модули, чем любой другой известный нам язык. Можно
+строить абстракции процедур и данных, можно использовать функции высших
+порядков, чтобы охватить общие шаблоны их использования, можно
+моделировать локальное состояние с использованием присваивания и
+изменения данных, можно связывать части программы с помощью потоков и
+задержанных вычислений, и можно с легкостью реализовывать встроенные
+языки. Все это включено в диалоговое окружение с превосходной поддержкой
+пошагового проектирования, построения, тестирования и отладки программ.
+Мы благодарны всем поколениям кудесников Лиспа начиная с Джона Маккарти,
+которые создали замечательный инструмент непревзойденной силы и красоты.
 
-Scheme, the dialect of Lisp that we use, is an attempt to bring together the
-power and elegance of Lisp and Algol.  From Lisp we take the metalinguistic
-power that derives from the simple syntax, the uniform representation of
-programs as data objects, and the garbage-collected heap-allocated data.  From
-Algol we take lexical scoping and block structure, which are gifts from the
-pioneers of programming-language design who were on the Algol committee.  We
-wish to cite John Reynolds and Peter Landin for their insights into the
-relationship of Church's λ-calculus to the structure of programming
-languages.  We also recognize our debt to the mathematicians who scouted out
-this territory decades before computers appeared on the scene.  These pioneers
-include Alonzo Church, Barkley Rosser, Stephen Kleene, and Haskell Curry.
+Scheme, тот диалект Лиспа, который мы используем, пытается совместить
+силу и красоту Лиспа и Алгола. От Лиспа мы берем метаязыковую мощь,
+которой он обязан простоте своего синтаксиса, единообразное
+представление программ как объектов данных, выделение данных из кучи с
+последующей их утилизацией сборщиком мусора. От Алгола мы берем
+лексическую область действия и блоковую структуру, подаренные нам
+первопроходцами проектирования языков программирования из комитета по
+Алголу. Мы хотим упомянуть Джона Рейнольдса и Питера Ландина, открывших
+связь Чёрчева лямбда-исчисления со структурой языков программирования.
+Мы также отдаем дань признательности математикам, разведавшим эту
+область за десятилетия до появления на сцене компьютеров. Среди этих
+первопроходцев были Алонсо Чёрч, Беркли Россер, Стефен Клини и Хаскелл
+Карри.
 
-@unnumbered Acknowledgments
+@comment @unnumbered Acknowledgments
+@unnumbered Благодарности
 @node       Acknowledgments, Chapter 1, Preface 1e, Top
 
-\lettrine[findent=1pt]{W}{e would like to thank} the many people who have helped us develop this book and
-this curriculum.
+\lettrine[findent=1pt]{М}{ы хотели бы поблагодарить} множество людей,
+которые помогли нам создать эту книгу и этот курс.
 
-Our subject is a clear intellectual descendant of ``6.231,'' a wonderful
-subject on programming linguistics and the λ-calculus taught at
-@acronym{MIT} in the late 1960s by Jack Wozencraft and Arthur Evans, Jr.
+Наш курс --- очевидный интеллектуальный потомок <<6.321>>,
+замечательного курса по компьютерной лингвистике и лямбда-исчислению,
+который читали в MIT в конце 60-х Джек Уозенкрафт и Артур Эванс@ мл.
 
-We owe a great debt to Robert Fano, who reorganized @acronym{MIT}'s
-introductory curriculum in electrical engineering and computer science to
-emphasize the principles of engineering design.  He led us in starting out on
-this enterprise and wrote the first set of subject notes from which this book
-evolved.
+Мы очень обязаны Роберту Фано, который реорганизовал вводную программу
+MIT по электротехнике и информатике, сосредоточившись на принципах
+технического проектирования. Он вдохновил нас на это предприятие и
+написал первую программу курса, из которого развилась эта книга.
 
-Much of the style and aesthetics of programming that we try to teach were
-developed in conjunction with Guy Lewis Steele Jr., who collaborated with
-Gerald Jay Sussman in the initial development of the Scheme language.  In
-addition, David Turner, Peter Henderson, Dan Friedman, David Wise, and Will
-Clinger have taught us many of the techniques of the functional programming
-community that appear in this book.
+Стиль и эстетика программирования, которые мы пытаемся привить читателю,
+во многом были разработаны совместно с Гаем Льюисом Стилом@ мл., который
+вместе с Джеральдом Джеем Сассманом участвовал в первоначальной
+разработке языка Scheme. В дополнение к этому Дэвид Тёрнер, Питер
+Хендерсон, Дэн Фридман, Дэвид Уайз и Уилл Клингер научили нас многим из
+приемов функционального программирования, которые излагаются в данной
+книге.
 
-Joel Moses taught us about structuring large systems.  His experience with the
-Macsyma system for symbolic computation provided the insight that one should
-avoid complexities of control and concentrate on organizing the data to reflect
-the real structure of the world being modeled.
+Джон Мозес научил нас структурировать большие системы. Благодаря его
+опыту с системой символьных вычислений Macsyma мы стали понимать, что
+необходимо избегать усложненности структур управления и в первую очередь
+заботиться о такой организации данных, которая отражает реальную
+структуру моделируемого мира
 
-Marvin Minsky and Seymour Papert formed many of our attitudes about programming
-and its place in our intellectual lives.  To them we owe the understanding that
-computation provides a means of expression for exploring ideas that would
-otherwise be too complex to deal with precisely.  They emphasize that a
-student's ability to write and modify programs provides a powerful medium in
-which exploring becomes a natural activity.
+Марвин Минский и Сеймур Пэйперт сильно повлияли на формирование нашего
+подхода к программированию и к его месту в нашей интеллектуальной жизни.
+Благодаря им мы понимаем, что вычисление дает нам средство выражения и
+исследования мыслей, которые иначе были бы слишком сложны, чтобы с ними
+можно было точно работать. Они подчеркивают, что способность писать и
+изменять программы дает студенту мощное средство, с помощью которого
+исследование становится естественной деятельностью.
 
-We also strongly agree with Alan Perlis that programming is lots of fun and we
-had better be careful to support the joy of programming.  Part of this joy
-derives from observing great masters at work.  We are fortunate to have been
-apprentice programmers at the feet of Bill Gosper and Richard Greenblatt.
+Кроме того, мы полностью согласны с Аланом Перлисом в том, что
+программирование --- это огромное удовольствие и что нам нужно
+стараться поддерживать радость программирования. Часть этой радости
+приходит от наблюдения за работой великих мастеров. Нам выпало счастье
+быть учениками у ног Билла Госпера и Ричарда Гринблатта.
 
-It is difficult to identify all the people who have contributed to the
-development of our curriculum.  We thank all the lecturers, recitation
-instructors, and tutors who have worked with us over the past fifteen years and
-put in many extra hours on our subject, especially Bill Siebert, Albert Meyer,
-Joe Stoy, Randy Davis, Louis Braida, Eric Grimson, Rod Brooks, Lynn Stein and
-Peter Szolovits.  We would like to specially acknowledge the outstanding
-teaching contributions of Franklyn Turbak, now at Wellesley; his work in
-undergraduate instruction set a standard that we can all aspire to.  We are
-grateful to Jerry Saltzer and Jim Miller for helping us grapple with the
-mysteries of concurrency, and to Peter Szolovits and David McAllester for their
-contributions to the exposition of nondeterministic evaluation in @ref{Chapter
-4}.
+Трудно перечислить всех тех, кто принял участие в развитии программы
+нашего курса. Мы благодарим всех лекторов, инструкторов и тьюторов,
+которые работали с нами в прошедшие пятнадцать лет и потратили много
+часов сверхурочной работы на наш предмет, особенно Билла Сиберта,
+Альберта Мейера, Джо Стоя, Рэнди Дэвиса, Луи Брэйда, Эрика Гримсона,
+Рода Брукса, Линна Стейна и Питера Соловитца. Мы бы хотели особо
+отметить выдающийся педагогический вклад Франклина Турбака, который
+теперь преподает в Уэллесли: его работа по обучению младшекурсников
+установила стандарт, на который мы все можем равняться. Мы благодарны
+Джерри Сальтцеру и Джиму Миллеру, которые помогли нам бороться с тайнами
+параллельных вычислений, а также Питеру Соловитцу и Дэвиду Макаллестеру
+за их вклад в представление недетерминистских вычислений в
+главе@ @ref{Глава 4}.
 
-Many people have put in significant effort presenting this material at other
-universities.  Some of the people we have worked closely with are Jacob
-Katzenelson at the Technion, Hardy Mayer at the University of California at
-Irvine, Joe Stoy at Oxford, Elisha Sacks at Purdue, and Jan Komorowski at the
-Norwegian University of Science and Technology.  We are exceptionally proud of
-our colleagues who have received major teaching awards for their adaptations of
-this subject at other universities, including Kenneth Yip at Yale, Brian Harvey
-at the University of California at Berkeley, and Dan Huttenlocher at Cornell.
+Много людей вложило немалый труд в преподавание этого материала и в
+других университетах. Вот некоторые из тех, с кем мы тесно общались в
+работе: это Джекоб Кацнельсон в Технионе, Хэрди Майер в Калифорнийском
+университете в Ирвине, Джо Стой в Оксфорде, Элиша Сэкс в университете
+Пердью и Ян Коморовский в Норвежском университете Науки и Техники. Мы
+гордимся коллегами, которые получили награды за адаптацию этого предмета
+в других университетах: это Кеннет Йип в Йеле, Брайан Харви в
+Калифорнийском университете в Беркли и Дон Хаттенлохер в Корнелле.
 
-Al Moy@'e arranged for us to teach this material to engineers at
-Hewlett-Packard, and for the production of videotapes of these lectures.  We
-would like to thank the talented instructors---in particular Jim Miller, Bill
-Siebert, and Mike Eisenberg---who have designed continuing education courses
-incorporating these tapes and taught them at universities and industry all over
-the world.
+Эл Мойе дал нам возможность прочитать этот материал инженерам компании
+Хьюлетт-Паккард и устроил производство видеоверсии этих лекций. Мы
+хотели бы поблагодарить одаренных преподавателей --- в особенности Джима
+Миллера, Билла Сиберта и Майка Айзенберга, --- которые разработали курсы
+повышения квалификации с использованием этих видеоматериалов и
+преподавали по ним в различных университетах и корпорациях по всему
+миру.
 
-Many educators in other countries have put in significant work translating the
-first edition.  Michel Briand, Pierre Chamard, and Andr@'e Pic produced a
-French edition; Susanne Daniels-Herold produced a German edition; and Fumio
-Motoyoshi produced a Japanese edition.  We do not know who produced the Chinese
-edition, but we consider it an honor to have been selected as the subject of an
-``unauthorized'' translation.
+Множество работников образования проделали значительную работу по
+переводу первого издания. Мишель Бриан, Пьер Шамар и Андре Пик сделали
+французское издание, Сюзанна Дэниелс-Хэрольд выполнила немецкий перевод,
+а Фумио Мотоёси --- японский. Мы не знаем авторов китайского издания,
+однако считаем для себя честью быть выбранными в качестве объекта
+<<неавторизованного>> перевода.
 
-It is hard to enumerate all the people who have made technical contributions to
-the development of the Scheme systems we use for instructional purposes.  In
-addition to Guy Steele, principal wizards have included Chris Hanson, Joe
-Bowbeer, Jim Miller, Guillermo Rozas, and Stephen Adams.  Others who have put
-in significant time are Richard Stallman, Alan Bawden, Kent Pitman, Jon Taft,
-Neil Mayle, John Lamping, Gwyn Osnos, Tracy Larrabee, George Carrette, Soma
-Chaudhuri, Bill Chiarchiaro, Steven Kirsch, Leigh Klotz, Wayne Noss, Todd Cass,
-Patrick O'Donnell, Kevin Theobald, Daniel Weise, Kenneth Sinclair, Anthony
-Courtemanche, Henry M. Wu, Andrew Berlin, and Ruth Shyu.
+Трудно перечислить всех людей, внесших технический вклад в разработку
+систем программирования на языке Scheme, которые мы используем в учебных
+целях. Кроме Гая Стила, в список важнейших волшебников входят Крис
+Хансон, Джо Боубир, Джим Миллер, Гильермо Росас и Стефен Адамс. Кроме
+них, существенное время и силы вложили Ричард Столлман, Алан Боуден,
+Кент Питман, Джон Тафт, Нил Мэйл, Джон Лэмпинг, Гуин Оснос, Трейси
+Ларраби, Джордж Карретт, Сома Чаудхури, Билл Киаркиаро, Стивен Кирш, Лей
+Клотц, Уэйн Носс, Тодд Кэсс, Патрик О'Доннелл, Кевин Теобальд, Дэниел
+Вайзе, Кеннет Синклер, Энтони Кортеманш, Генри М.@ Ву, Эндрю Берлин и
+Рут@ Шью.
 
-Beyond the @acronym{MIT} implementation, we would like to thank the many people
-who worked on the @acronym{IEEE} Scheme standard, including William Clinger and
-Jonathan Rees, who edited the @math{\rm R^4RS}, and Chris Haynes, David Bartley,
-Chris Hanson, and Jim Miller, who prepared the @acronym{IEEE} standard.
+Помимо авторов реализации MIT, мы хотели бы поблагодарить множество
+людей, работавших над стандартом Scheme IEEE, в том числе Уильяма
+Клингера и Джонатана Риса, которые редактировали
+@math{\rm R^4RS}, а также Криса Хэйнса, Дэвида Бартли, Криса
+Хансона и Джима Миллера, которые подготовили стандарт IEEE.
 
-Dan Friedman has been a long-time leader of the Scheme community.  The
-community's broader work goes beyond issues of language design to encompass
-significant educational innovations, such as the high-school curriculum based
-on EdScheme by Schemer's Inc., and the wonderful books by Mike Eisenberg and by
-Brian Harvey and Matthew Wright.
+Долгое время Дэн Фридман был лидером сообщества языка Scheme. Работа
+сообщества в более широком плане переходит границы вопросов разработки
+языка и включает значительные инновации в образовании, такие как курс
+для старшей школы, основанный на EdScheme компании Schemer's Inc. и
+замечательные книги Майка Айзенберга, Брайана Харви и Мэтью Райта.
 
-We appreciate the work of those who contributed to making this a real book,
-especially Terry Ehling, Larry Cohen, and Paul Bethge at the @acronym{MIT}
-Press.  Ella Mazel found the wonderful cover image.  For the second edition we
-are particularly grateful to Bernard and Ella Mazel for help with the book
-design, and to David Jones, @TeX{} wizard extraordinaire.  We also are indebted
-to those readers who made penetrating comments on the new draft: Jacob
-Katzenelson, Hardy Mayer, Jim Miller, and especially Brian Harvey, who did unto
-this book as Julie did unto his book @cite{Simply Scheme}.
+Мы ценим труд тех, кто принял участие в превращении этой работы в
+настоящую книгу, особенно Терри Элинга, Ларри Коэна и Пола Бетджа из
+издательства MIT Press. Элла Мэйзел нашла замечательный рисунок для
+обложки. Что касается второго издания, то мы особенно благодарны
+Бернарду и Элле Мэйзел за помощь с оформлением книги, а также Дэвиду
+Джонсу, великому волшебнику TeXа. Мы также в долгу перед читателями,
+сделавшими проницательные замечания по новому проекту: Джекобу
+Кацнельсону, Харди Мейеру, Джиму Миллеру и в особенности Брайану Харви,
+который был для этой книги тем же, кем Джули была для его книги
+@emph{Просто Scheme.}
 
-Finally, we would like to acknowledge the support of the organizations that
-have encouraged this work over the years, including support from
-Hewlett-Packard, made possible by Ira Goldstein and Joel Birnbaum, and support
-from @acronym{DARPA}, made possible by Bob Kahn.
+Наконец, мы хотели бы выразить признательность организациям, которые
+поддерживали нашу работу в течение этих лет. Мы благодарны компании
+Хьюлетт-Паккард за поддержку, которая стала возможной благодаря Айре
+Гольдстейну и Джоэлю Бирнбауму, а также агентству DARPA за поддержку,
+которая стала возможной благодаря Бобу Кану.
 
 \mainmatter
 
