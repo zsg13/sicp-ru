@@ -6785,17 +6785,19 @@ number), которое показывает, сколько переменны�
 @subsection Связь скомпилированного кода с вычислителем
 @node	5.5.7,  , 5.5.6, 5.5
 
-We have not yet explained how to load compiled code into the evaluator machine
-or how to run it.  We will assume that the explicit-control-evaluator machine
-has been defined as in @ref{5.4.4}, with the additional operations
-specified in @ref{Footnote 38}.  We will implement a procedure
-@code{compile-and-go} that compiles a Scheme expression, loads the resulting
-object code into the evaluator machine, and causes the machine to run the code
-in the evaluator global environment, print the result, and enter the
-evaluator's driver loop.  We will also modify the evaluator so that interpreted
-expressions can call compiled procedures as well as interpreted ones.  We can
-then put a compiled procedure into the machine and use the evaluator to call
-it:
+Пока что мы не объяснили, как загружать скомпилированный код в
+машину-вычислитель и как его запускать. Предположим, что
+машина-вычислитель с явным управлением определена как в
+разделе @ref{5.4.4} с дополнительными операциями
+из примечания @ref{Примечание 5.38}. Мы реализуем процедуру
+@code{compile-and-go}, которая компилирует выражение на Scheme,
+загружает получившийся код в машину-вычислитель, а затем заставляет
+машину исполнить код в глобальном окружении вычислителя, напечатать
+результат и войти в управляющий цикл. Вычислитель мы изменим так, чтобы
+интерпретируемые выражения могли вызывать не только интерпретируемые, но
+и скомпилированные процедуры. После этого мы можем поместить
+скомпилированную процедуру в машину и вызвать ее с помощью
+интерпретатора:
 
 @lisp
 (compile-and-go
@@ -6803,32 +6805,34 @@ it:
     (if (= n 1)
         1
         (* (factorial (- n 1)) n))))
-@i{;;; EC-Eval value:}
+@i{;;; Значение EC-Eval:}
 @i{ok}
-@i{;;; EC-Eval input:}
+
+@i{;;; Ввод EC-Eval:}
 (factorial 5)
-@i{;;; EC-Eval value:}
+@i{;;; Значение EC-Eval:}
 @i{120}
 @end lisp
 
-@noindent
-To allow the evaluator to handle compiled procedures (for example, to evaluate
-the call to @code{factorial} above), we need to change the code at
-@code{apply-dispatch} (@ref{5.4.1}) so that it recognizes compiled
-procedures (as distinct from compound or primitive procedures) and transfers
-control directly to the entry point of the compiled code:@footnote{Of course,
-compiled procedures as well as interpreted procedures are compound
-(nonprimitive).  For compatibility with the terminology used in the
-explicit-control evaluator, in this section we will use ``compound'' to mean
-interpreted (as opposed to compiled).}
+Для того, чтобы вычислитель мог обрабатывать скомпилированные процедуры
+(например, выполнить вызов @code{factorial}, как показано выше), нужно
+изменить код @code{apply-dispatch} (раздел @ref{5.4.1}), чтобы
+он распознавал их (в отличие от составных и элементарных процедур) и
+передавал управление прямо во входную точку скомпилированного
+кода@footnote{Разумеется, скомпилированные процедуры являются составными
+(неэлементарными) точно так же, как и интерпретируемые. Однако ради
+совместимости с терминологией, которая используется при обсуждении
+вычислителя с явным управлением, мы в этом разделе будем считать, что
+слово <<составная>> означает <<интерпретируемая>> (а не
+скомпилированная).}:
 
 @lisp
 apply-dispatch
   (test (op primitive-procedure?) (reg proc))
   (branch (label primitive-apply))
-  (test (op compound-procedure?) (reg proc))
+  (test (op compound-procedure?) (reg proc))  
   (branch (label compound-apply))
-  (test (op compiled-procedure?) (reg proc))
+  (test (op compiled-procedure?) (reg proc))  
   (branch (label compiled-apply))
   (goto (label unknown-procedure-type))
 compiled-apply
@@ -6837,20 +6841,21 @@ compiled-apply
   (goto (reg val))
 @end lisp
 
-@noindent
-Note the restore of @code{continue} at @code{compiled-apply}.  Recall that the
-evaluator was arranged so that at @code{apply-dispatch}, the continuation would
-be at the top of the stack.  The compiled code entry point, on the other hand,
-expects the continuation to be in @code{continue}, so @code{continue} must be
-restored before the compiled code is executed.
+Обратите внимание на восстановление @code{continue} в
+@code{compiled-apply}. Вспомним, что вычислитель был так устроен, что
+при выполнении @code{apply-dispatch} продолжение находилось на вершине
+стека. С другой стороны, входная точка скомпилированного кода ожидает,
+что продолжение будет находиться в @code{continue}, так что этот регистр
+надо восстановить, прежде чем передать управление скомпилированному
+коду.
 
-To enable us to run some compiled code when we start the evaluator machine, we
-add a @code{branch} instruction at the beginning of the evaluator machine,
-which causes the machine to go to a new entry point if the @code{flag} register
-is set.@footnote{Now that the evaluator machine starts with a @code{branch}, we
-must always initialize the @code{flag} register before starting the evaluator
-machine.  To start the machine at its ordinary read-eval-print loop, we could
-use
+Для того, чтобы позволить нам запускать скомпилированный код при запуске
+вычислителя, мы в начало машины добавляем команду @code{branch},
+которая переводит машину на новую точку входа, если установлен регистр
+@code{flag}@footnote{Теперь, когда код вычислителя начинается с
+@code{branch}, нам перед запуском машины всегда нужно устанавливать
+значение @code{flag}. Для того, чтобы запустить машину в обычном
+управляющем цикле, можно использовать
 
 @lisp
 (define (start-eceval)
@@ -6858,10 +6863,10 @@ use
   (set-register-contents! eceval 'flag false)
   (start eceval))
 @end lisp
-}
+}.
 
 @lisp
-(branch (label external-entry))      @r{; branches if @code{flag} is set}
+(branch (label external-entry))    @r{; переход, если установлен @code{flag}}
 read-eval-print-loop
   (perform (op initialize-stack))
   @dots{}
@@ -6870,19 +6875,21 @@ read-eval-print-loop
 \enlargethispage{\baselineskip}
 
 @noindent
-@code{external-entry} assumes that the machine is started with @code{val}
-containing the location of an instruction sequence that puts a result into
-@code{val} and ends with @code{(goto (reg continue))}.  Starting at this entry
-point jumps to the location designated by @code{val}, but first assigns
-@code{continue} so that execution will return to @code{print-result}, which
-prints the value in @code{val} and then goes to the beginning of the
-evaluator's read-eval-print loop.@footnote{Since a compiled procedure is an
-object that the system may try to print, we also modify the system print
-operation @code{user-print} (from @ref{4.1.4}) so that it will not
-attempt to print the components of a compiled procedure:
+@code{external-entry} предполагает, что при запуске машины регистр
+@code{val} содержит местоположение последовательности команд, которая
+помещает результат в @code{val} и заканчивается командой
+@code{(goto (reg continue))}. Запуск машины с этой точки входа приводит
+к переходу в место, куда показывает @code{val}, но сначала
+@code{continue} устанавливается в @code{print-result}, которая
+распечатает значение @code{val}, а затем направится в начало
+управляющего цикла вычислителя@footnote{Поскольку скомпилированная
+процедура является объектом, который система может попытаться
+напечатать, нужно еще изменить системную операцию печати
+@code{user-print} (из раздела @ref{4.1.4}),
+чтобы она не пыталась печатать компоненты скомпилированной процедуры:
 
 @lisp
-(define (user-print object)
+(define (user-print object) 
   (cond ((compound-procedure? object)
          (display (list 'compound-procedure
                         (procedure-parameters object)
@@ -6892,7 +6899,7 @@ attempt to print the components of a compiled procedure:
          (display '<compiled-procedure>))
         (else (display object))))
 @end lisp
-}
+}.
 
 @lisp
 external-entry
@@ -6903,25 +6910,25 @@ external-entry
 @end lisp
 
 @noindent
-Now we can use the following procedure to compile a procedure definition,
-execute the compiled code, and run the read-eval-print loop so we can try the
-procedure.  Because we want the compiled code to return to the location in
-@code{continue} with its result in @code{val}, we compile the expression with a
-target of @code{val} and a linkage of @code{return}.  In order to transform the
-object code produced by the compiler into executable instructions for the
-evaluator register machine, we use the procedure @code{assemble} from the
-register-machine simulator (@ref{5.2.2}).  We then initialize the
-@code{val} register to point to the list of instructions, set the @code{flag}
-so that the evaluator will go to @code{external-entry}, and start the
-evaluator.
+Теперь с помощью следующей процедуры можно скомпилировать определение,
+выполнить скомпилированный код и войти в управляющий цикл, откуда мы
+можем процедуру оттестировать. Поскольку мы хотим, чтобы
+скомпилированная процедура возвращалась в место, указанное
+@code{continue}, со значением в @code{val}, мы компилируем выражение с
+целевым регистром @code{val} и типом связи @code{return}. Чтобы
+преобразовать объектный код, порождаемый компилятором, в исполняемые
+команды регистровой машины-вычислителя, мы пользуемся процедурой
+@code{assemble} из имитатора регистровых машин
+(раздел @ref{5.2.2}). Затем мы устанавливаем @code{val},
+чтобы он указывал на список команд, устанавливаем @code{flag}, чтобы
+вычислитель пошел на @code{external-entry}, и запускаем вычислитель.
 
 @lisp
 (define (compile-and-go expression)
   (let ((instructions
-         (assemble
-          (statements
-           (compile expression 'val 'return))
-          eceval)))
+         (assemble (statements
+                    (compile expression 'val 'return))
+                   eceval)))
     (set! the-global-environment (setup-environment))
     (set-register-contents! eceval 'val instructions)
     (set-register-contents! eceval 'flag true)
@@ -6929,8 +6936,8 @@ evaluator.
 @end lisp
 
 @noindent
-If we have set up stack monitoring, as at the end of @ref{5.4.4}, we
-can examine the stack usage of compiled code:
+Если мы установим отслеживание стека, как в конце раздела @ref{5.4.4}, то
+сможем исследовать использование стека скомпилированным кодом:
 
 @lisp
 (compile-and-go
@@ -6938,128 +6945,143 @@ can examine the stack usage of compiled code:
     (if (= n 1)
         1
         (* (factorial (- n 1)) n))))
+
 @i{(total-pushes = 0 maximum-depth = 0)}
-@i{;;; EC-Eval value:}
+@i{;;; Значение EC-Eval:}
 @i{ok}
-@i{;;; EC-Eval input:}
+@i{;;; Ввод EC-Eval:}
 (factorial 5)
 @i{(total-pushes = 31 maximum-depth = 14)}
-@i{;;; EC-Eval value:}
+@i{;;; Значение EC-Eval:}
 @i{120}
 @end lisp
 
-@noindent
-Compare this example with the evaluation of @code{(factorial 5)} using the
-interpreted version of the same procedure, shown at the end of
-@ref{5.4.4}.  The interpreted version required 144 pushes and a maximum stack
-depth of 28.  This illustrates the optimization that results from our
-compilation strategy.
+Сравните этот пример с вычислением @code{(factorial 5)} с помощью
+интерпретируемой версии той же самой процедуры, приведенным в конце
+раздела @ref{5.4.4}. В интерпретируемой версии
+потребовалось 144 сохранения и максимальная глубина стека 28. Это
+показывает, какую оптимизацию удалось получить с помощью нашей стратегии
+компиляции.
 
-@subsubheading Interpretation and compilation
+@comment @subsubheading Interpretation and compilation
+@subsubheading Интерпретация и компиляция
 
-With the programs in this section, we can now experiment with the alternative
-execution strategies of interpretation and compilation.@footnote{We can do even
-better by extending the compiler to allow compiled code to call interpreted
-procedures.  See @ref{Exercise 5.47}.}  An interpreter raises the machine to
-the level of the user program; a compiler lowers the user program to the level
-of the machine language.  We can regard the Scheme language (or any programming
-language) as a coherent family of abstractions erected on the machine language.
-Interpreters are good for interactive program development and debugging because
-the steps of program execution are organized in terms of these abstractions,
-and are therefore more intelligible to the programmer.  Compiled code can
-execute faster, because the steps of program execution are organized in terms
-of the machine language, and the compiler is free to make optimizations that
-cut across the higher-level abstractions.@footnote{Independent of the strategy
-of execution, we incur significant overhead if we insist that errors
-encountered in execution of a user program be detected and signaled, rather
-than being allowed to kill the system or produce wrong answers.  For example,
-an out-of-bounds array reference can be detected by checking the validity of
-the reference before performing it.  The overhead of checking, however, can be
-many times the cost of the array reference itself, and a programmer should
-weigh speed against safety in determining whether such a check is desirable.  A
-good compiler should be able to produce code with such checks, should avoid
-redundant checks, and should allow programmers to control the extent and type
-of error checking in the compiled code.
+При помощи программ из этого раздела мы можем проводить эксперименты с
+различными стратегиями выполнения: интерпретацией и
+компиляцией@footnote{Можно добиться даже большего, если расширить
+компилятор так, чтобы скомпилированный код мог вызывать интерпретируемые
+процедуры. См. упражнение @ref{Упражнение 5.47}.}. Интерпретатор
+поднимает машину до уровня пользовательской программы; компилятор
+опускает пользовательскую программу до уровня машинного языка. Можно
+рассматривать язык Scheme (или любой язык программирования) как
+согласованную систему абстракций, построенных поверх машинного языка.
+Интерпретаторы хороши для интерактивной разработки программ и их
+отладки, поскольку шаги выполнения программы организованы в терминах
+этих абстракций, и, следовательно, лучше понятны программисту.
+Скомпилированный код может работать быстрее, поскольку шаги выполнения
+программы организованы в терминах машинного языка, и компилятор может
+проводить оптимизации, которые нарушают абстракции верхнего
+уровня@footnote{Независимо от стратегии выполнения, мы сталкиваемся с
+существенным замедлением, если требуем, чтобы ошибки, возникающие при
+выполнении пользовательской программы, были обнаружены и отмечены, а не
+приводили к смерти системы или к неверным результатам работы. Например,
+индексирование за границы массива можно обнаружить, если перед
+обращением к массиву проверить правильность индекса. Однако затраты на
+проверку могут быть во много раз больше, чем стоимость самого обращения,
+и программисту приходится взвешивать преимущества скорости и
+безопасности, когда он решает, нужна ли такая проверка. Хороший
+компилятор должен уметь порождать код с проверками, избегать лишних
+проверок и позволять программистам управлять количеством и видами
+проверок на ошибки в скомпилированном коде.
 
-Compilers for popular languages, such as C and C++, put hardly any
-error-checking operations into running code, so as to make things run as fast
-as possible.  As a result, it falls to programmers to explicitly provide error
-checking.  Unfortunately, people often neglect to do this, even in critical
-applications where speed is not a constraint.  Their programs lead fast and
-dangerous lives.  For example, the notorious ``Worm'' that paralyzed the
-Internet in 1988 exploited the @acronym{UNIX}(tm) operating system's failure to
-check whether the input buffer has overflowed in the finger daemon. (See
-@ref{Spafford 1989}.)}
+Компиляторы для популярных языков программирования, вроде C или C++,
+почти никаких проверок в работающий код не помещают, чтобы программы
+выполнялись как можно быстрее. В результате программистам приходится
+самим проводить проверку на ошибки. К сожалению, многие этим
+пренебрегают, даже в критических приложениях, где скорость не является
+существенным ограничением. Их программы ведут бурную и опасную жизнь.
+Например, знаменитый <<Червь>>, который парализовал Интернет в 1988
+году, использовал то, что операционная система @acronym{UNIX}(tm) не
+проверяла переполнение буфера в демоне @code{finger}. (См. Spafford 1989.)}.
 
-The alternatives of interpretation and compilation also lead to different
-strategies for porting languages to new computers. Suppose that we wish to
-implement Lisp for a new machine.  One strategy is to begin with the
-explicit-control evaluator of @ref{5.4} and translate its instructions
-to instructions for the new machine.  A different strategy is to begin with the
-compiler and change the code generators so that they generate code for the new
-machine.  The second strategy allows us to run any Lisp program on the new
-machine by first compiling it with the compiler running on our original Lisp
-system, and linking it with a compiled version of the run-time
-library.@footnote{Of course, with either the interpretation or the compilation
-strategy we must also implement for the new machine storage allocation, input
-and output, and all the various operations that we took as ``primitive'' in our
-discussion of the evaluator and compiler.  One strategy for minimizing work
-here is to write as many of these operations as possible in Lisp and then
-compile them for the new machine.  Ultimately, everything reduces to a small
-kernel (such as garbage collection and the mechanism for applying actual
-machine primitives) that is hand-coded for the new machine.} Better yet, we can
-compile the compiler itself, and run this on the new machine to compile other
-Lisp programs.@footnote{This strategy leads to amusing tests of correctness of
-the compiler, such as checking whether the compilation of a program on the new
-machine, using the compiled compiler, is identical with the compilation of the
-program on the original Lisp system.  Tracking down the source of differences
-is fun but often frustrating, because the results are extremely sensitive to
-minuscule details.}  Or we can compile one of the interpreters of
-@ref{4.1} to produce an interpreter that runs on the new machine.
+Компиляция и интерпретация также ведут к различным стратегиям при
+переносе языков на новые компьютеры. Предположим, что нам надо
+реализовать Лисп для новой машины. Одна стратегия будет состоять в том,
+чтобы взять вычислитель с явным управлением из раздела @ref{5.4} и перевести его
+команды в команды новой машины. Вторая --- в том, чтобы начать с
+компилятора и изменить генераторы кода так, чтобы они порождали код
+новой машины. Вторая стратегия позволяет запускать на новой машине любую
+программу на Лиспе, если сначала скомпилировать ее компилятором, который
+работает на исходной Лисп-системе, а затем связать со скомпилированной
+версией рабочей библиотеки@footnote{Разумеется, как при интерпретации,
+так и при компиляции придется еще реализовать для новой машины
+управление памятью, ввод и вывод, а также все операции, которые мы
+считали <<элементарными>> при обсуждении интерпретатора и компилятора.
+Один из способов минимизировать эту работу заключается в том, чтобы как
+можно большее число этих операций написать на Лиспе, а затем
+скомпилировать для новой машины. В конце концов все сводится к простому
+ядру (например, сборка мусора и механизм для применения настоящих
+машинных примитивов), которое кодируется для новой машины вручную.}.
+Более того, мы можем скомпилировать сам компилятор, и, запустив его на
+новой машине, компилировать другие программы на Лиспе@footnote{Такая
+стратегия приводит к забавным проверкам корректности компилятора. Можно,
+например, сравнить, совпадает ли результат компиляции программы на новой
+машине, с помощью скомпилированного компилятора, с результатом
+компиляции той же программы на исходной Лисп-системе. Поиск причин
+расхождения --- занятие интересное, но зачастую довольно сложное,
+поскольку результат может зависеть от микроскопических деталей.}. Либо
+же мы можем скомпилировать один из интерпретаторов из раздела @ref{4.1}
+и получить интерпретатор, который работает на новой машине.
 
 @quotation
-@strong{@anchor{Exercise 5.45}Exercise 5.45:} By comparing the stack operations
-used by compiled code to the stack operations used by the evaluator for the
-same computation, we can determine the extent to which the compiler optimizes
-use of the stack, both in speed (reducing the total number of stack operations)
-and in space (reducing the maximum stack depth).  Comparing this optimized
-stack use to the performance of a special-purpose machine for the same
-computation gives some indication of the quality of the compiler.
+@strong{@anchor{Упражнение 5.45}Упражнение 5.45:} Сравнивая статистику операций со стеком, порождаемую
+скомпилированным кодом, с такой же статистикой для интерпретатора,
+ведущего то же самое вычисление, можно определить, насколько компилятор
+оптимизирует работу со стеком, как по скорости (уменьшая общее число
+стековых операций), так и по памяти (уменьшая максимальную глубину
+стека). Сравнение той же статистики с результатами работы
+специализированной машины, предназначенной для того же вычисления, дает
+некоторое представление о качестве компилятора.
 
 @enumerate a.
 
 @item
-@ref{Exercise 5.27} asked you to determine, as a function of @math{n}, the number
-of pushes and the maximum stack depth needed by the evaluator to compute @math{n!}
-using the recursive factorial procedure given above.  @ref{Exercise 5.14} asked
-you to do the same measurements for the special-purpose factorial machine shown
-in @ref{Рисунок 5.11}. Now perform the same analysis using the compiled
-@code{factorial} procedure.
+В упражнении @ref{Упражнение 5.27} от Вас требовалось определить как
+функцию от @math{n} число сохранений и максимальную глубину стека,
+которые требуются вычислителю для того, чтобы получить @math{n!} с
+помощью указанной факториальной процедуры. В
+упражнении @ref{Упражнение 5.14} Вас просили провести те же измерения
+для специализированной факториальной машины, показанной на
+рисунке @ref{Рисунок 5.11}. Проведите теперь тот же анализ для
+скомпилированной процедуры @code{factorial}.
 
-Take the ratio of the number of pushes in the compiled version to the number of
-pushes in the interpreted version, and do the same for the maximum stack depth.
-Since the number of operations and the stack depth used to compute @math{n!}  are
-linear in @math{n}, these ratios should approach constants as @math{n} becomes large.
-What are these constants?  Similarly, find the ratios of the stack usage in the
-special-purpose machine to the usage in the interpreted version.
+Возьмем отношение числа сохранений в скомпилированной версии к числу
+сохранений в интерпретируемой версии и проделаем то же для максимальной
+глубины стека. Поскольку число операций и глубина стека при вычислении
+@math{n!} линейно зависят от @math{n}, эти отношения должны приближаться
+к константам при росте @math{n}. Чему равны эти константы? Найдите также
+отношения показателей использования стека в специализированной машине к
+показателям интерпретируемой версии.
 
-Compare the ratios for special-purpose versus interpreted code to the ratios
-for compiled versus interpreted code.  You should find that the special-purpose
-machine does much better than the compiled code, since the hand-tailored
-controller code should be much better than what is produced by our rudimentary
-general-purpose compiler.
+Сравните отношения специализированной версии к интерпретируемой и
+отношения скомпилированной версии к интерпретируемой. Вы должны увидеть,
+что специализированная машина работает намного лучше скомпилированного
+кода, поскольку настроенный вручную код контроллера должен быть намного
+лучше, чем результаты работы нашего рудиментарного компилятора общего
+назначения.
 
 @item
-Can you suggest improvements to the compiler that would help it generate code
-that would come closer in performance to the hand-tailored version?
+Можете ли Вы предложить изменения в компиляторе, помогающие ему
+порождать код, который приблизится к показателям версии, построенной
+вручную?
 
 @end enumerate
 @end quotation
 
 @quotation
-@strong{@anchor{Exercise 5.46}Exercise 5.46:} Carry out an analysis like the
-one in @ref{Exercise 5.45} to determine the effectiveness of compiling the
-tree-recursive Fibonacci procedure
+@strong{@anchor{Упражнение 5.46}Упражнение 5.46:} Проведите анализ, подобный анализу из
+упражнения @ref{Упражнение 5.45}, и определите эффективность
+компиляции для процедуры Фибоначчи с древовидной рекурсией
 
 @lisp
 (define (fib n)
@@ -7070,92 +7092,100 @@ tree-recursive Fibonacci procedure
 @end lisp
 
 @noindent
-compared to the effectiveness of using the special-purpose Fibonacci machine of
-@ref{Рисунок 5.12}.  (For measurement of the interpreted performance, see
-@ref{Exercise 5.29}.)  For Fibonacci, the time resource used is not linear in
-@math{n;} hence the ratios of stack operations will not approach a limiting value
-that is independent of @math{n}.
+по сравнению с эффективностью работы специализированной машины Фибоначчи
+с рисунка @ref{Рисунок 5.12}. (Измерения интерпретируемой версии
+см. в упражнении @ref{Упражнение 5.29}.) Для процедуры Фибоначчи
+время растет в нелинейной зависимости от @math{n}; следовательно,
+отношение числа стековых операций не будет приближаться к независимому
+от @math{n} пределу.
 @end quotation
 
 @quotation
-@strong{@anchor{Exercise 5.47}Exercise 5.47:} This section described how to
-modify the explicit-control evaluator so that interpreted code can call
-compiled procedures.  Show how to modify the compiler so that compiled
-procedures can call not only primitive procedures and compiled procedures, but
-interpreted procedures as well.  This requires modifying
-@code{compile-procedure-call} to handle the case of compound (interpreted)
-procedures.  Be sure to handle all the same @code{target} and @code{linkage}
-combinations as in @code{compile-proc-appl}.  To do the actual procedure
-application, the code needs to jump to the evaluator's @code{compound-apply}
-entry point.  This label cannot be directly referenced in object code (since
-the assembler requires that all labels referenced by the code it is assembling
-be defined there), so we will add a register called @code{compapp} to the
-evaluator machine to hold this entry point, and add an instruction to
-initialize it:
+@strong{@anchor{Упражнение 5.47}Упражнение 5.47:} В этом разделе рассказывалось, как модифицировать
+вычислитель с явным управлением и позволить интерпретируемому коду
+вызывать скомпилированные процедуры. Покажите, как можно изменить
+компилятор и позволить скомпилированным процедурам вызывать не только
+элементарные и скомпилированные процедуры, но и интерпретируемые. При
+этом придется изменить @code{compile-procedure-call} так, чтобы
+обрабатывался случай составных (интерпретируемых) процедур. Проследите,
+чтобы обрабатывались все те же сочетания @code{target} и @code{linkage},
+что и в @code{compile-proc-appl}. Для того, чтобы произвести собственно
+применение процедуры, код должен переходить на точку входа
+@code{compound-apply} вычислителя. На эту метку нельзя напрямую
+ссылаться из объектного кода (потому что ассемблер требует, чтобы все
+метки, на которые явно ссылается объектный код, в нем и определялись),
+так что придется добавить в машину-вычислитель специальный регистр
+@code{compapp}, в котором будет храниться эта точка входа, и команду
+для его инициализации:
 
 @lisp
- (assign compapp (label compound-apply))
- (branch (label external-entry)) @r{; branches if @code{flag} is set}
+(assign compapp (label compound-apply))
+(branch (label external-entry))   @r{; переход, если установлен @code{flag}}
 read-eval-print-loop @dots{}
 @end lisp
 
-To test your code, start by defining a procedure @code{f} that calls a
-procedure @code{g}.  Use @code{compile-and-go} to compile the definition of
-@code{f} and start the evaluator.  Now, typing at the evaluator, define
-@code{g} and try to call @code{f}.
+Чтобы проверить свой код, для начала определите процедуру @code{f},
+которая вызывает процедуру @code{g}. С помощью @code{compile-and-go}
+скомпилируйте определение @code{f} и запустите вычислитель. Теперь,
+вводя код для интерпретации, определите @code{g} и попробуйте вызвать
+@code{f}.
 @end quotation
 
 @quotation
-@strong{@anchor{Exercise 5.48}Exercise 5.48:} The @code{compile-and-go}
-interface implemented in this section is awkward, since the compiler can be
-called only once (when the evaluator machine is started).  Augment the
-compiler-interpreter interface by providing a @code{compile-and-run} primitive
-that can be called from within the explicit-control evaluator as follows:
+@strong{@anchor{Упражнение 5.48}Упражнение 5.48:} Интерфейс @code{compile-and-go}, реализованный в этом
+разделе, неудобен, поскольку компилятор можно вызвать только один раз
+(при запуске машины-вычислителя). Дополните интерфейс между компилятором
+и интерпретатором, введя примитив @code{compile-and-run}, который можно
+будет вызывать из вычислителя с явным управлением так:
 
 @lisp
-@i{;;; EC-Eval input:}
+@i{;;; Ввод EC-Eval:}
 (compile-and-run
  '(define (factorial n)
     (if (= n 1) 1 (* (factorial (- n 1)) n))))
-@i{;;; EC-Eval value:}
+@i{;;; Значение EC-Eval:}
 @i{ok}
-@i{;;; EC-Eval input:}
+@i{;;; Ввод EC-Eval:}
 (factorial 5)
-@i{;;; EC-Eval value:}
+@i{;;; Значение EC-Eval:}
 @i{120}
 @end lisp
 @end quotation
 
 @quotation
-@strong{@anchor{Exercise 5.49}Exercise 5.49:} As an alternative to using the
-explicit-control evaluator's read-eval-print loop, design a register machine
-that performs a read-compile-execute-print loop.  That is, the machine should
-run a loop that reads an expression, compiles it, assembles and executes the
-resulting code, and prints the result.  This is easy to run in our simulated
-setup, since we can arrange to call the procedures @code{compile} and
-@code{assemble} as ``register-machine operations.''
+@strong{@anchor{Упражнение 5.49}Упражнение 5.49:} В качестве альтернативы циклу ввод-выполнение-печать
+вычислителя с явным управлением, спроектируйте регистровую машину,
+которая работала бы в цикле ввод-компиляция-выполнение-печать. А
+именно, машина должна работать в цикле, при каждой итерации которого
+она считывает выражение, компилирует его, ассемблирует и исполняет
+получившийся код, и печатает результат. В нашей имитируемой среде это
+легко устроить, поскольку мы можем заставить @code{compile} и
+@code{assemble} работать как <<операции регистровой машины>>.
 @end quotation
 
 @quotation
-@strong{@anchor{Exercise 5.50}Exercise 5.50:} Use the compiler to compile the
-metacircular evaluator of @ref{4.1} and run this program using the
-register-machine simulator.  (To compile more than one definition at a time,
-you can package the definitions in a @code{begin}.)  The resulting interpreter
-will run very slowly because of the multiple levels of interpretation, but
-getting all the details to work is an instructive exercise.
+@strong{@anchor{Упражнение 5.50}Упражнение 5.50:} С помощью компилятора
+оттранслируйте метациклический интерпретатор из раздела @ref{4.1}
+и запустите эту программу через имитатор регистровых машин. (Чтобы
+скомпилировать за раз более одного определения, можно упаковать
+определения в @code{begin}.) Получившийся интерпретатор будет работать
+очень медленно из-за многочисленных уровней интерпретации, однако
+заставить все детали работать --- полезное упражнение.
 @end quotation
 
 @quotation
-@strong{@anchor{Exercise 5.51}Exercise 5.51:} Develop a rudimentary
-implementation of Scheme in C (or some other low-level language of your choice)
-by translating the explicit-control evaluator of @ref{5.4} into C.  In
-order to run this code you will need to also provide appropriate
-storage-allocation routines and other run-time support.
+@strong{@anchor{Упражнение 5.51}Упражнение 5.51:} Разработайте рудиментарную реализацию Scheme на C (или на
+другом низкоуровневом языке по Вашему выбору), переведя на C вычислитель
+с явными управлением из раздела @ref{5.4}. Для того, чтобы
+запустить этот код, Вам потребуется предоставить также функции для
+выделения памяти и прочую поддержку времени выполнения.
 @end quotation
 
 @quotation
-@strong{@anchor{Exercise 5.52}Exercise 5.52:} As a counterpoint to
-@ref{Exercise 5.51}, modify the compiler so that it compiles Scheme procedures
-into sequences of C instructions.  Compile the metacircular evaluator of
-@ref{4.1} to produce a Scheme interpreter written in C.
+@strong{@anchor{Упражнение 5.52}Упражнение 5.52:} В качестве обратной задачи к
+упражнению @ref{Упражнение 5.51}, измените компилятор так, чтобы он
+компилировал процедуры Scheme в последовательности команд C.
+Скомпилируйте метациклический интерпретатор из раздела @ref{4.1}
+и получите интерпретатор Scheme, написанный на C.
 @end quotation
+
