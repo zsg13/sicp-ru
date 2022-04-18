@@ -2576,6 +2576,7 @@ the commonality between the two programs.
 Вычисление многочлена с переменной @math{x} при данном
 значении @math{x} можно сформулировать в виде накопления. Мы вычисляем
 многочлен
+@ifinfo
 
 @example
 a_n x^n + a_(n-1) x^(n-1) + ... + a_1 x + a_0
