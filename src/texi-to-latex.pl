@@ -345,6 +345,7 @@ my %syntax = (
   '@image'          => [ $braces,   image() ],
   '@math'           => [ $braces,   inlinemath() ],
   '@newterm'        => [ $braces,   glue('newterm') ],
+  '@newtermru'      => [ $braces,   glue('newtermru') ],
   '@r'              => [ $braces,   glue('textrm') ],
   '@ref'            => [ $braces,   glue('link') ],
   '@strong'         => [ $braces,   glue('heading') ],
