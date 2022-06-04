@@ -149,7 +149,7 @@ sub glue { # glue the tag on embraced arg
     my $inner = transform($arg, $tag);
     my $linktype = ''; # prefix numerical links with 'Section':
     if ($tag eq 'link' and $inner =~ m/^\d/) {
-      $linktype = 'Section ';
+      $linktype = 'Раздел ';
     }
     my $phantom = ''; # fix labels inside figure environment:
     if (($env eq 'figure' or $env eq 'heading') and $tag eq 'label') {
@@ -219,7 +219,7 @@ sub node { # extract first part of arg and make label out of it
   return sub {
     my $arg = shift;
     my $label = (split /,/, $arg)[0];
-    $label =~ s/^(\d)/Section $1/; # prefix 'Section' to starting number
+    $label =~ s/^(\d)/Раздел $1/; # prefix 'Section' to starting number
     return "\\label\{$label\}";
   }
 }
