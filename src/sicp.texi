@@ -31489,7 +31489,7 @@ $$ -1 = 1 + 2 + 4 + 8 + \dots. $$
 выполняются по порядку, так, как они перечислены.
 
 @quotation
-@strong{@anchor{Рисунок 5.3}Figure 5.3:} @math{\downarrow} A specification of the @acronym{GCD}
+@strong{@anchor{Рисунок 5.3}Рисунок 5.3:} @math{\downarrow} A specification of the @acronym{GCD}
 machine.
 
 @direntry
@@ -31967,7 +31967,7 @@ after-gcd-2
 показанная на @ref{Рисунок 5.8}.
 
 @quotation
-@strong{@anchor{Рисунок 5.8}Figure 5.8:} @math{\downarrow} Сегменты последовательности команд контроллера для машины, которая использует одни и те же компоненты путей данных для двух различных вычислений НОД.
+@strong{@anchor{Рисунок 5.8}Рисунок 5.8:} @math{\downarrow} Сегменты последовательности команд контроллера для машины, которая использует одни и те же компоненты путей данных для двух различных вычислений НОД.
 @lisp
 gcd-1
  (test (op =) (reg b) (const 0))
@@ -32005,7 +32005,7 @@ after-gcd-2
 содержит только одну копию команд @code{gcd}.
 
 @quotation
-@strong{@anchor{Рисунок 5.9}Figure 5.9:} @math{\downarrow} Использование регистра @code{continue} ради избежания повторяющейся последовательности команд с @ref{Рисунок 5.8}.
+@strong{@anchor{Рисунок 5.9}Рисунок 5.9:} @math{\downarrow} Использование регистра @code{continue} ради избежания повторяющейся последовательности команд с @ref{Рисунок 5.8}.
 @lisp
 gcd
  (test (op =) (reg b) (const 0))
@@ -32116,7 +32116,7 @@ after-gcd-2
 последовательности команд, показанной на @ref{Рисунок 5.10}.
 
 @quotation
-@strong{@anchor{Рисунок 5.10}Figure 5.10:} @math{\downarrow} Присваивание регистру @code{continue} меток упрощает и обобщает стратегию с @ref{Рисунок 5.9}.
+@strong{@anchor{Рисунок 5.10}Рисунок 5.10:} @math{\downarrow} Присваивание регистру @code{continue} меток упрощает и обобщает стратегию с @ref{Рисунок 5.9}.
 @lisp
 gcd
  (test (op =) (reg b) (const 0))
@@ -32417,7 +32417,7 @@ after-gcd-2
 вызова ответ содержится в @code{val}. На @ref{Рисунок 5.12}
 показана последовательность команд контроллера для этой машины.
 
-@strong{@anchor{Рисунок 5.12}Figure 5.12:} @math{\downarrow} Контроллер машины для вычисления чисел Фибоначчи.
+@strong{@anchor{Рисунок 5.12}Рисунок 5.12:} @math{\downarrow} Контроллер машины для вычисления чисел Фибоначчи.
 
 @lisp
 (controller
@@ -32830,7 +32830,7 @@ procedure). Вызов этой процедуры имитирует выпол
 последовательности команд).
 
 @quotation
-@strong{@anchor{Рисунок 5.13}Figure 5.13:} @math{\downarrow} The @code{make-new-machine}
+@strong{@anchor{Рисунок 5.13}Рисунок 5.13:} @math{\downarrow} The @code{make-new-machine}
 procedure, which implements the basic machine model.
 
 @direntry
@@ -37389,7 +37389,7 @@ after-call15
 @end quotation
 
 @quotation
-@strong{@anchor{Рисунок 5.17}Figure 5.17:} @math{\downarrow} Скомпилированный код определения процедуры @code{factorial}. Окончание.
+@strong{@anchor{Рисунок 5.17}Рисунок 5.17:} @math{\downarrow} Скомпилированный код определения процедуры @code{factorial}. Окончание.
 
 @smalllisp
 @r{;; построить процедуру и обойти ее тело}
@@ -37499,7 +37499,7 @@ after-lambda1
 @end quotation
 
 @quotation
-@strong{@anchor{Рисунок 5.18}Figure 5.18:} @math{\downarrow} Пример вывода компилятора. Смотри @ref{Exercise 5.35}.
+@strong{@anchor{Рисунок 5.18}Рисунок 5.18:} @math{\downarrow} Пример вывода компилятора. Смотри @ref{Exercise 5.35}.
 
 @smalllisp
 (assign val
@@ -38801,8 +38801,6 @@ In @cite{Proceedings of the National Conference of the @acronym{ACM}},
 pp. 153-62.
 @url{http://dspace.mit.edu/handle/1721.1/5753, –›}
 
-\pagebreak
-
 \phantomsection @anchor{Steele 1982}
 @b{Steele}, Guy Lewis, Jr.  1982.  An overview of Common Lisp.  In
 @cite{Proceedings of the @acronym{ACM} Symposium on Lisp and Functional
@@ -38906,13 +38904,13 @@ Kluwer Academic Publishers.
 
 \fontspec[Numbers={Lining}]{Linux Libertine O}
 
-@unnumbered List of Exercises
+@unnumbered Список упражнений
 @node    List of Exercises, List of Figures, References, Top
 
 @c @include exercises.texi
 \input{exercises}
 
-@unnumbered List of Figures
+@unnumbered Список рисунков
 @node    List of Figures, Index, List of Exercises, Top
 
 @c @include figures.texi
@@ -38925,8 +38923,7 @@ Kluwer Academic Publishers.
 @sp 0.8
 
 @quotation
-Any inaccuracies in this index may be explained by the fact@*
-that it has been prepared with the help of a computer.
+Любые неточности в этом указателе могут быть объяснены тем фактом, что он был подготовлен с помощью компьютера.
 
 ---Donald E. Knuth, @cite{Fundamental Algorithms}@*
 (Volume 1 of @cite{The Art of Computer Programming})
@@ -38943,13 +38940,13 @@ that it has been prepared with the help of a computer.
 
 @printindex cp
 
-@unnumbered Colophon
+@unnumbered Колофон
 @node    Colophon, , Index, Top
 
-\lettrine[lraise=-0.03,loversize=0.08]{O}{n the cover page} is Agostino Ramelli's bookwheel mechanism from 1588. It could be seen as an early hypertext navigation aid. This image of the engraving is hosted by J. E. Johnson of @url{http://newgottland.com/2012/02/09/before-the-ereader-there-was-the-wheelreader/ramelli_bookwheel_1032px/, New Gottland}.
+\lettrine[lraise=-0.03,loversize=0.08]{Н}{а титульном листе} изображен механизм книжного колеса Агостино Рамелли 1588 года. Его можно рассматривать как раннее средство гипертекстовой навигации. Это изображение гравюры принадлежит Дж.Э. Джонсону из Нью-Готланда.
 
-The typefaces are Linux Libertine for body text and Linux Biolinum for headings, both by Philipp H. Poll. Typewriter face is Inconsolata created by Raph Levien and supplemented by Dimosthenis Kaponis and Takashi Tanigawa in the form of Inconsolata @acronym{LGC}. The cover page typeface is Alegreya, designed by Juan Pablo del Peral.
+Шрифты - Linux Libertine для основного текста и Linux Biolinum для заголовков, оба от Philipp H. Poll. Лицо пишущей машинки - "Безутешная", созданная Рафом Левиеном и дополненная Димосфенисом Капонисом и Такаши Танигавой в форме "Безутешной" lgc. Шрифт титульного листа - Alegreya, разработанный Хуаном Пабло дель Пераль.
 
-Graphic design and typography are done by Andres Raba. Texinfo source is converted to LaTeX by a Perl script and compiled to @acronym{PDF} by XeLaTeX. Diagrams are drawn with Inkscape.
+Графическим дизайном и типографией занимается Андрес Раба. Источником Texinfo является преобразован в LaTeX с помощью скрипта Perl и скомпилирован в pdf с помощью XeLaTeX. Диаграммы рисуются с помощью Inkscape.
 
 @bye
