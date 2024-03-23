@@ -2,20 +2,20 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="376.6933"
-   height="245.41798"
+   width="444.69299"
+   height="251.418"
    id="svg8906"
    version="1.1"
-   inkscape:version="0.48.3.1 r9886"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
    sodipodi:docname="Fig2.26e.svg"
-   style="display:inline">
+   style="display:inline"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <defs
      id="defs8908" />
   <sodipodi:namedview
@@ -26,20 +26,23 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="229.8115"
-     inkscape:cy="129.26678"
+     inkscape:cx="230.31478"
+     inkscape:cy="129.29952"
      inkscape:document-units="px"
      inkscape:current-layer="layer6"
      showgrid="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1004"
+     inkscape:window-height="1053"
      inkscape:window-x="0"
-     inkscape:window-y="24"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      fit-margin-top="1"
      fit-margin-left="1"
      fit-margin-right="1"
-     fit-margin-bottom="1">
+     fit-margin-bottom="1"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1">
     <inkscape:grid
        type="xygrid"
        id="grid8914"
@@ -47,8 +50,10 @@
        visible="true"
        enabled="true"
        snapvisiblegridlinesonly="true"
-       originx="-85.890242px"
-       originy="-738.8984px" />
+       originx="-85.890242"
+       originy="-738.8984"
+       spacingx="1"
+       spacingy="1" />
   </sodipodi:namedview>
   <metadata
      id="metadata_2.26">
@@ -60,7 +65,7 @@
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
         <dc:title>SICP Figure 2.26</dc:title>
         <cc:license
-           rdf:resource="http://creativecommons.org/licenses/by-sa/3.0/" />
+           rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
         <dc:description>Based on the diagram in Abelson, Sussman &amp; Sussman's &quot;Structure and Interpretation of Computer Programs&quot;, 2nd ed.</dc:description>
         <dc:source>http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-18.html#%_fig_2.26</dc:source>
         <dc:creator>
@@ -79,7 +84,7 @@
         </dc:subject>
       </cc:Work>
       <cc:License
-         rdf:about="http://creativecommons.org/licenses/by-sa/3.0/">
+         rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
         <cc:permits
            rdf:resource="http://creativecommons.org/ns#Reproduction" />
         <cc:permits
@@ -102,50 +107,56 @@
      style="display:inline"
      transform="translate(-85.890242,-68.045804)">
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.53149605;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 365,127.36218 -30,30"
+       style="fill:none;stroke:#000000;stroke-width:0.531496;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 385,127.36218 -30,30"
        id="path9537-3-17"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.53149605;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 380,217.36218 30,30"
+       style="fill:none;stroke:#000000;stroke-width:0.531496;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 400,217.36218 30,30"
        id="path9537-3-3"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.53149605;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 370,217.36218 -30,30"
+       style="fill:none;stroke:#000000;stroke-width:0.531496;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 390,217.36218 -30,30"
        id="path9537-3-17-4"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.53149605;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 405,262.36218 -30,30"
+       style="fill:none;stroke:#000000;stroke-width:0.531496;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 425,262.36218 -30,30"
        id="path9537-3-17-6"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.53149605;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 335,262.36218 30,30"
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.617094;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 473.03878,210.06616 439.7624,246.5255"
+       id="path9537-3-17-6-6"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.531496;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 355,262.36218 30,30"
        id="path9537-3-9-6"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.53149605;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 450,217.36218 -30,30"
-       id="path9537-3-17-7"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:0.53149605;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 330,82.362183 30,29.999997"
+       style="fill:none;stroke:#000000;stroke-width:0.531496;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 350,82.362183 30,29.999997"
        id="path9537-3-8"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.53149605;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 335,172.36218 30,30"
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.682351;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 396.69719,129.10156 39.50898,37.54593"
+       id="path9537-3-8-3"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.531496;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 355,172.36218 30,30"
        id="path9537-3-8-0"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
@@ -153,41 +164,35 @@
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
        id="path9537-3-17-1-9-1-5"
-       d="M 320,82.362186 245,157.36218"
-       style="fill:none;stroke:#000000;stroke-width:0.53149605;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+       d="M 340,82.362186 265,157.36218"
+       style="fill:none;stroke:#000000;stroke-width:0.531496;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.53149605;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 375,127.36218 75,75"
-       id="path9537-3-9-1"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:0.53149605;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
-       d="m 240,172.36218 35,35"
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.531496;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 260,172.36218 35,35"
        id="path9537-3-8-2"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.53149605;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
-       d="m 175,237.36218 45,45"
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.531496;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 195,237.36218 45,45"
        id="path9537-3-8-2-3"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.53149605;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
-       d="m 230,172.36218 -35,35"
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.531496;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 250,172.36218 -35,35"
        id="path9537-3-17-1-9-1-0"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.53149605;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
-       d="m 275,237.36218 -45,45"
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.531496;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 295,237.36218 -45,45"
        id="path9537-3-17-1-9-1-0-5"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.53149605;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
-       d="m 165,237.36218 -45,45"
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.531496;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 185,237.36218 -45,45"
        id="path9537-3-17-72-3-9"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
@@ -200,162 +205,188 @@
      transform="translate(-85.890242,-68.045804)">
     <text
        xml:space="preserve"
-       style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Linux Biolinum O;-inkscape-font-specification:Linux Biolinum O"
-       x="325"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Linux Biolinum O';-inkscape-font-specification:'Linux Biolinum O';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       x="345"
        y="78.119804"
-       id="text9475"
-       sodipodi:linespacing="125%"><tspan
+       id="text9475"><tspan
          sodipodi:role="line"
          id="tspan9477"
-         x="325"
-         y="78.119804">polygon</tspan></text>
+         x="345"
+         y="78.119804"
+         style="font-size:13px;line-height:1.25">многоугольник</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Linux Biolinum O;-inkscape-font-specification:Linux Biolinum O"
-       x="370"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Linux Biolinum O';-inkscape-font-specification:'Linux Biolinum O';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       x="390"
        y="123.1198"
-       id="text9479"
-       sodipodi:linespacing="125%"><tspan
+       id="text9479"><tspan
          sodipodi:role="line"
          id="tspan9481"
-         x="370"
-         y="123.1198">quadrilateral</tspan></text>
+         x="390"
+         y="123.1198"
+         style="font-size:13px;line-height:1.25">четырехугольник</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Linux Biolinum O;-inkscape-font-specification:Linux Biolinum O"
-       x="452"
-       y="213.11978"
-       id="text9483"
-       sodipodi:linespacing="125%"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:91%;font-family:'Linux Biolinum O';-inkscape-font-specification:'Linux Biolinum O';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       x="471.46027"
+       y="177.83479"
+       id="text9483"><tspan
          sodipodi:role="line"
-         id="tspan9485"
-         x="452"
-         y="213.11978">kite</tspan></text>
+         x="471.46027"
+         y="177.83479"
+         style="font-size:13px"
+         id="tspan372">четырехугольник с</tspan><tspan
+         sodipodi:role="line"
+         x="471.46027"
+         y="189.039"
+         style="font-size:13px"
+         id="tspan376">перпендикулярными</tspan><tspan
+         sodipodi:role="line"
+         x="471.46027"
+         y="200.24321"
+         style="font-size:13px"
+         id="tspan374">диагоналями</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Linux Biolinum O;-inkscape-font-specification:Linux Biolinum O"
-       x="333"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Linux Biolinum O';-inkscape-font-specification:'Linux Biolinum O';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       x="353"
        y="168.11978"
-       id="text9487"
-       sodipodi:linespacing="125%"><tspan
+       id="text9487"><tspan
          sodipodi:role="line"
          id="tspan9489"
-         x="333"
-         y="168.11978">trapezoid</tspan></text>
+         x="353"
+         y="168.11978"
+         style="font-size:13px;line-height:1.25">трапеция</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Linux Biolinum O;-inkscape-font-specification:Linux Biolinum O"
-       x="375"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Linux Biolinum O';-inkscape-font-specification:'Linux Biolinum O';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       x="395"
        y="213.11978"
-       id="text9491"
-       sodipodi:linespacing="125%"><tspan
+       id="text9491"><tspan
          sodipodi:role="line"
          id="tspan9493"
-         x="375"
-         y="213.11978">parallelogram</tspan></text>
+         x="395"
+         y="213.11978"
+         style="font-size:13px;line-height:1.25">параллелограмм</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Linux Biolinum O;-inkscape-font-specification:Linux Biolinum O"
-       x="333"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Linux Biolinum O';-inkscape-font-specification:'Linux Biolinum O';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       x="353"
        y="258.11978"
-       id="text9511"
-       sodipodi:linespacing="125%"><tspan
+       id="text9511"><tspan
          sodipodi:role="line"
          id="tspan9513"
-         x="333"
-         y="258.11978">rectangle</tspan></text>
+         x="353"
+         y="258.11978"
+         style="font-size:13px;line-height:1.25">прямоугольник</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Linux Biolinum O;-inkscape-font-specification:Linux Biolinum O"
-       x="415"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Linux Biolinum O';-inkscape-font-specification:'Linux Biolinum O';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       x="435"
        y="258.11978"
-       id="text9515"
-       sodipodi:linespacing="125%"><tspan
+       id="text9515"><tspan
          sodipodi:role="line"
          id="tspan9517"
-         x="415"
-         y="258.11978">rhombus</tspan></text>
+         x="435"
+         y="258.11978"
+         style="font-size:13px;line-height:1.25">ромб</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Linux Biolinum O;-inkscape-font-specification:Linux Biolinum O"
-       x="370"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Linux Biolinum O';-inkscape-font-specification:'Linux Biolinum O';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       x="390"
        y="303.11978"
-       id="text9519"
-       sodipodi:linespacing="125%"><tspan
+       id="text9519"><tspan
          sodipodi:role="line"
          id="tspan9521"
-         x="370"
-         y="303.11978">square</tspan></text>
+         x="390"
+         y="303.11978"
+         style="font-size:13px;line-height:1.25">квадрат</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Linux Biolinum O;-inkscape-font-specification:Linux Biolinum O"
-       x="235"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Linux Biolinum O';-inkscape-font-specification:'Linux Biolinum O';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       x="255"
        y="168.11978"
-       id="text9495"
-       sodipodi:linespacing="125%"><tspan
+       id="text9495"><tspan
          sodipodi:role="line"
          id="tspan9497"
-         x="235"
-         y="168.11978">triangle</tspan></text>
+         x="255"
+         y="168.11978"
+         style="font-size:13px;line-height:1.25">треугольник</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Linux Biolinum O;-inkscape-font-specification:Linux Biolinum O"
-       x="175"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Linux Biolinum O';-inkscape-font-specification:'Linux Biolinum O';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       x="195"
        y="218.11978"
-       id="text9499"
-       sodipodi:linespacing="125%"><tspan
+       id="text9499"><tspan
          sodipodi:role="line"
          id="tspan9501"
-         x="175"
-         y="218.11978">isosceles</tspan><tspan
+         x="195"
+         y="218.11978"
+         style="font-size:13px;line-height:1.25">равнобедренный</tspan><tspan
          sodipodi:role="line"
-         x="175"
+         x="195"
          y="234.36978"
-         id="tspan9503">triangle</tspan></text>
+         id="tspan9503"
+         style="font-size:13px;line-height:1.25">треугольник</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Linux Biolinum O;-inkscape-font-specification:Linux Biolinum O"
-       x="280"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Linux Biolinum O';-inkscape-font-specification:'Linux Biolinum O';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       x="300"
        y="218.11978"
-       id="text9505"
-       sodipodi:linespacing="125%"><tspan
+       id="text9505"><tspan
          sodipodi:role="line"
          id="tspan9507"
-         x="280"
-         y="218.11978">right</tspan><tspan
+         x="300"
+         y="218.11978"
+         style="font-size:13px;line-height:1.25">прямоугольный</tspan><tspan
          sodipodi:role="line"
-         x="280"
+         x="300"
          y="234.36978"
-         id="tspan9509">triangle</tspan></text>
+         id="tspan9509"
+         style="font-size:13px;line-height:1.25">треугольник</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Linux Biolinum O;-inkscape-font-specification:Linux Biolinum O"
-       x="225"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:94.4%;font-family:'Linux Biolinum O';-inkscape-font-specification:'Linux Biolinum O';text-align:center;letter-spacing:0px;word-spacing:0.01px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       x="245"
        y="293.11978"
-       id="text9523"
-       sodipodi:linespacing="125%"><tspan
+       id="text9523"><tspan
          sodipodi:role="line"
          id="tspan9525"
-         x="225"
-         y="293.11978">isosceles</tspan><tspan
+         x="245"
+         y="293.11978"
+         style="font-size:13px"
+         dx="0"
+         dy="0">равнобедренный</tspan><tspan
          sodipodi:role="line"
-         x="225"
-         y="309.36978"
-         id="tspan9529">right triangle</tspan></text>
+         x="245"
+         y="304.73199"
+         id="tspan9529"
+         style="font-size:13px">прямоуголный</tspan><tspan
+         sodipodi:role="line"
+         x="245"
+         y="316.34421"
+         style="font-size:13px"
+         id="tspan316">треугольник</tspan><tspan
+         sodipodi:role="line"
+         x="245"
+         y="327.67221"
+         style="font-size:13px"
+         id="tspan314" /></text>
     <text
        xml:space="preserve"
-       style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Linux Biolinum O;-inkscape-font-specification:Linux Biolinum O"
-       x="115"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Linux Biolinum O';-inkscape-font-specification:'Linux Biolinum O';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       x="135"
        y="293.11978"
-       id="text9531"
-       sodipodi:linespacing="125%"><tspan
+       id="text9531"><tspan
          sodipodi:role="line"
          id="tspan9533"
-         x="115"
-         y="293.11978">equilateral</tspan><tspan
+         x="135"
+         y="293.11978"
+         style="font-size:13px;line-height:1.25">равносторонний</tspan><tspan
          sodipodi:role="line"
-         x="115"
+         x="135"
          y="309.36978"
-         id="tspan9535">triangle</tspan></text>
+         id="tspan9535"
+         style="font-size:13px;line-height:1.25">треугольник</tspan></text>
   </g>
 </svg>

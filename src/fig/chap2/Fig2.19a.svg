@@ -2,20 +2,20 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="422.53149"
    height="168.129"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.3.1 r9886"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
    sodipodi:docname="Fig2.19a.svg"
-   style="display:inline">
+   style="display:inline"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -26,20 +26,23 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="221.00545"
-     inkscape:cy="90.75805"
+     inkscape:cx="221.22341"
+     inkscape:cy="90.913728"
      inkscape:document-units="px"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer3"
      showgrid="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1004"
+     inkscape:window-height="1053"
      inkscape:window-x="0"
-     inkscape:window-y="24"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      fit-margin-top="1"
      fit-margin-left="1"
      fit-margin-right="1"
-     fit-margin-bottom="1">
+     fit-margin-bottom="1"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1">
     <inkscape:grid
        type="xygrid"
        id="grid2985"
@@ -47,8 +50,10 @@
        visible="true"
        enabled="true"
        snapvisiblegridlinesonly="true"
-       originx="-98.734252px"
-       originy="-786.945px" />
+       originx="-98.734252"
+       originy="-786.945"
+       spacingx="1"
+       spacingy="1" />
   </sodipodi:namedview>
   <metadata
      id="metadata_2.19">
@@ -159,77 +164,79 @@
      transform="translate(-98.734252,-97.288183)">
     <text
        xml:space="preserve"
-       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Inconsolata LGC;-inkscape-font-specification:Sans"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Inconsolata LGC';-inkscape-font-specification:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
        x="310"
        y="141.07648"
-       id="text3000"
-       sodipodi:linespacing="125%"><tspan
+       id="text3000"><tspan
          sodipodi:role="line"
          id="tspan3002"
          x="310"
-         y="141.07648">add-complex  sub-complex  mul-complex  div-complex</tspan></text>
+         y="141.07648"
+         style="font-size:11px;line-height:1.25">add-complex  sub-complex  mul-complex  div-complex</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Linux Biolinum O;-inkscape-font-specification:Linux Biolinum O"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Linux Biolinum O';-inkscape-font-specification:'Linux Biolinum O';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
        x="310"
        y="107.36218"
-       id="text3004"
-       sodipodi:linespacing="125%"><tspan
+       id="text3004"><tspan
          sodipodi:role="line"
          id="tspan3006"
          x="310"
-         y="107.36218">Programs that use complex numbers</tspan></text>
+         y="107.36218"
+         style="font-size:13px;line-height:1.25">Программы использующие комплексные числа</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Linux Biolinum O;-inkscape-font-specification:Linux Biolinum O"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Linux Biolinum O';-inkscape-font-specification:'Linux Biolinum O';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
        x="310.35715"
        y="176.35202"
-       id="text3008"
-       sodipodi:linespacing="125%"><tspan
+       id="text3008"><tspan
          sodipodi:role="line"
          id="tspan3010"
          x="310.35715"
-         y="176.35202">Complex-arithmetic package</tspan></text>
+         y="176.35202"
+         style="font-size:13px;line-height:1.25">Пакет комплексной арифметики</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Linux Biolinum O;-inkscape-font-specification:Linux Biolinum O"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Linux Biolinum O';-inkscape-font-specification:'Linux Biolinum O';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
        x="220.28572"
        y="212.36218"
-       id="text3012"
-       sodipodi:linespacing="125%"><tspan
+       id="text3012"><tspan
          sodipodi:role="line"
-         id="tspan3014"
          x="220.28572"
-         y="212.36218">Rectangular</tspan><tspan
+         y="212.36218"
+         id="tspan3016"
+         style="font-size:13px;line-height:1.25">Декартово</tspan><tspan
          sodipodi:role="line"
          x="220.28572"
          y="228.61218"
-         id="tspan3016">representation</tspan></text>
+         style="font-size:13px;line-height:1.25"
+         id="tspan328">представление</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Linux Biolinum O;-inkscape-font-specification:Linux Biolinum O"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Linux Biolinum O';-inkscape-font-specification:'Linux Biolinum O';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
        x="399.71429"
        y="211.29076"
-       id="text3018"
-       sodipodi:linespacing="125%"><tspan
+       id="text3018"><tspan
          sodipodi:role="line"
-         id="tspan3020"
          x="399.71429"
-         y="211.29076">Polar</tspan><tspan
+         y="211.29076"
+         id="tspan3022"
+         style="font-size:13px;line-height:1.25">Полярное</tspan><tspan
          sodipodi:role="line"
          x="399.71429"
          y="227.54076"
-         id="tspan3022">representation</tspan></text>
+         style="font-size:13px;line-height:1.25"
+         id="tspan332">представление</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Linux Biolinum O;-inkscape-font-specification:Linux Biolinum O"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Linux Biolinum O';-inkscape-font-specification:'Linux Biolinum O';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
        x="310"
        y="261.36218"
-       id="text3024"
-       sodipodi:linespacing="125%"><tspan
+       id="text3024"><tspan
          sodipodi:role="line"
          id="tspan3026"
          x="310"
-         y="261.36218">List structure and primitive machine arithmetic</tspan></text>
+         y="261.36218"
+         style="font-size:13px;line-height:1.25">Списковая структура и элементарная машинная арифметика</tspan></text>
   </g>
 </svg>
