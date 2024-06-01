@@ -3,6 +3,5 @@ MAINTAINER Berezhko Ivan <ivan@berezhko.ru>
 
 RUN dnf -y update
 RUN dnf install -y git texlive make inkscape latexmk dejavu-sans-mono-fonts linux-libertine-fonts texlive-ncctools texlive-newtx texlive-imakeidx texlive-idxlayout texlive-lettrine texlive-minifp linux-libertine-biolinum-fonts vim texlive-hyphen-russian
-RUN git clone https://github.com/zsg13/sicp-ru.git /sicp-ru
-RUN cd /sicp-ru/src/; make
-ENTRYPOINT /bin/bash
+COPY build.sh /
+ENTRYPOINT /build.sh
