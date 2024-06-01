@@ -31,4 +31,7 @@ clean-sicp: clean
 clean-all: clean
 	${RM} ${FIG} sicp.tex exercises.tex figures.tex coverpage.pdf
 
+save:
+	cp ../sicp-`date +%Y%m%d`.pdf /sicp-out/
+
 .PHONY: all clean clean-all
