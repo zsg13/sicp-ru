@@ -1,7 +1,8 @@
 FROM fedora
 MAINTAINER Berezhko Ivan <ivan@berezhko.ru>
 
-RUN dnf -y update
-RUN dnf install -y git texlive make inkscape latexmk dejavu-sans-mono-fonts linux-libertine-fonts texlive-ncctools texlive-newtx texlive-imakeidx texlive-idxlayout texlive-lettrine texlive-minifp linux-libertine-biolinum-fonts vim texlive-hyphen-russian
+RUN dnf config-manager disable fedora-cisco-openh264
+RUN dnf -y up
+RUN dnf install -y git texlive make inkscape latexmk dejavu-sans-mono-fonts linux-libertine-fonts texlive-ncctools texlive-newtx texlive-imakeidx texlive-idxlayout texlive-lettrine texlive-minifp linux-libertine-biolinum-fonts texlive-hyphen-russian
 COPY build.sh /
 ENTRYPOINT /build.sh
